@@ -1,7 +1,432 @@
 {
   "strategy": "BSJP",
-  "winrate": null,
-  "cumulativeReturn": null,
-  "maxDrawdown": null,
-  "generatedAt": null
+  "generatedAt": "2026-05-17T12:18:29.977Z",
+  "source": "Yahoo Finance chart API",
+  "symbols": [
+    "BBCA.JK",
+    "BBRI.JK",
+    "BMRI.JK",
+    "TLKM.JK",
+    "ASII.JK",
+    "UNVR.JK",
+    "ICBP.JK",
+    "INDF.JK",
+    "ANTM.JK",
+    "MDKA.JK",
+    "ADRO.JK",
+    "PGAS.JK",
+    "BRIS.JK",
+    "CPIN.JK",
+    "INCO.JK"
+  ],
+  "periodStart": "2021-05-17",
+  "periodEnd": "2026-05-15",
+  "totalTrades": 347,
+  "winrate": 0.5648414985590778,
+  "cumulativeReturn": 3.524003886796737,
+  "averageReturn": 0.004448383606532216,
+  "maxDrawdown": -0.10878503641990078,
+  "assumptions": "Signal uses daily close; return uses next trading day's open divided by signal close.",
+  "sampleTrades": [
+    {
+      "symbol": "ADRO.JK",
+      "signalDate": "2025-10-29",
+      "entry": 1935,
+      "exit": 1955,
+      "returnPct": 0.010335917312661591,
+      "win": true
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2025-11-14",
+      "entry": 3040,
+      "exit": 3040,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "TLKM.JK",
+      "signalDate": "2025-11-24",
+      "entry": 3700,
+      "exit": 3690,
+      "returnPct": -0.002702702702702675,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2025-12-12",
+      "entry": 3050,
+      "exit": 3110,
+      "returnPct": 0.01967213114754096,
+      "win": true
+    },
+    {
+      "symbol": "BRIS.JK",
+      "signalDate": "2025-12-15",
+      "entry": 2290,
+      "exit": 2310,
+      "returnPct": 0.008733624454148492,
+      "win": true
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2025-12-16",
+      "entry": 2710,
+      "exit": 2700,
+      "returnPct": -0.0036900369003689537,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2025-12-18",
+      "entry": 4360,
+      "exit": 4360,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2025-12-23",
+      "entry": 4990,
+      "exit": 5125,
+      "returnPct": 0.027054108216432837,
+      "win": true
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2025-12-29",
+      "entry": 2320,
+      "exit": 2300,
+      "returnPct": -0.008620689655172376,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-01-05",
+      "entry": 3390,
+      "exit": 3410,
+      "returnPct": 0.005899705014749346,
+      "win": true
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2026-01-05",
+      "entry": 2480,
+      "exit": 2500,
+      "returnPct": 0.008064516129032251,
+      "win": true
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-01-05",
+      "entry": 5600,
+      "exit": 5650,
+      "returnPct": 0.008928571428571397,
+      "win": true
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2026-01-06",
+      "entry": 2700,
+      "exit": 2750,
+      "returnPct": 0.0185185185185186,
+      "win": true
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-01-07",
+      "entry": 3850,
+      "exit": 3810,
+      "returnPct": -0.010389610389610393,
+      "win": false
+    },
+    {
+      "symbol": "ADRO.JK",
+      "signalDate": "2026-01-07",
+      "entry": 2010,
+      "exit": 2120,
+      "returnPct": 0.054726368159204064,
+      "win": true
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-01-07",
+      "entry": 6325,
+      "exit": 6125,
+      "returnPct": -0.031620553359683834,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-01-12",
+      "entry": 3830,
+      "exit": 3830,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2026-01-12",
+      "entry": 2890,
+      "exit": 2950,
+      "returnPct": 0.02076124567474058,
+      "win": true
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2026-01-13",
+      "entry": 3120,
+      "exit": 3160,
+      "returnPct": 0.012820512820512775,
+      "win": true
+    },
+    {
+      "symbol": "ADRO.JK",
+      "signalDate": "2026-01-13",
+      "entry": 2290,
+      "exit": 2300,
+      "returnPct": 0.004366812227074135,
+      "win": true
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-01-14",
+      "entry": 4090,
+      "exit": 4170,
+      "returnPct": 0.019559902200489088,
+      "win": true
+    },
+    {
+      "symbol": "BRIS.JK",
+      "signalDate": "2026-01-14",
+      "entry": 2250,
+      "exit": 2250,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-01-26",
+      "entry": 4760,
+      "exit": 4760,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2026-02-02",
+      "entry": 2030,
+      "exit": 2010,
+      "returnPct": -0.009852216748768461,
+      "win": false
+    },
+    {
+      "symbol": "BRIS.JK",
+      "signalDate": "2026-02-04",
+      "entry": 2400,
+      "exit": 2420,
+      "returnPct": 0.008333333333333304,
+      "win": true
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-02-04",
+      "entry": 6600,
+      "exit": 6650,
+      "returnPct": 0.007575757575757569,
+      "win": true
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2026-02-05",
+      "entry": 2210,
+      "exit": 2190,
+      "returnPct": -0.009049773755656076,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-02-11",
+      "entry": 6850,
+      "exit": 6950,
+      "returnPct": 0.014598540145985384,
+      "win": true
+    },
+    {
+      "symbol": "MDKA.JK",
+      "signalDate": "2026-02-19",
+      "entry": 3530,
+      "exit": 3600,
+      "returnPct": 0.019830028328611915,
+      "win": true
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2026-02-23",
+      "entry": 2370,
+      "exit": 2370,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-02-25",
+      "entry": 7350,
+      "exit": 7350,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-02-27",
+      "entry": 7900,
+      "exit": 7775,
+      "returnPct": -0.015822784810126556,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-03-02",
+      "entry": 4610,
+      "exit": 4610,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "ADRO.JK",
+      "signalDate": "2026-03-12",
+      "entry": 2500,
+      "exit": 2500,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "CPIN.JK",
+      "signalDate": "2026-03-16",
+      "entry": 3970,
+      "exit": 3970,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2026-03-17",
+      "entry": 2000,
+      "exit": 1930,
+      "returnPct": -0.03500000000000003,
+      "win": false
+    },
+    {
+      "symbol": "BMRI.JK",
+      "signalDate": "2026-03-25",
+      "entry": 4970,
+      "exit": 4970,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "TLKM.JK",
+      "signalDate": "2026-03-25",
+      "entry": 3300,
+      "exit": 3240,
+      "returnPct": -0.018181818181818188,
+      "win": false
+    },
+    {
+      "symbol": "ASII.JK",
+      "signalDate": "2026-03-25",
+      "entry": 6600,
+      "exit": 6575,
+      "returnPct": -0.0037878787878787845,
+      "win": false
+    },
+    {
+      "symbol": "ADRO.JK",
+      "signalDate": "2026-03-25",
+      "entry": 2630,
+      "exit": 2630,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "INDF.JK",
+      "signalDate": "2026-03-31",
+      "entry": 6350,
+      "exit": 6375,
+      "returnPct": 0.003937007874015741,
+      "win": true
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-04-01",
+      "entry": 3710,
+      "exit": 3680,
+      "returnPct": -0.008086253369272267,
+      "win": false
+    },
+    {
+      "symbol": "ASII.JK",
+      "signalDate": "2026-04-08",
+      "entry": 6200,
+      "exit": 6150,
+      "returnPct": -0.008064516129032251,
+      "win": false
+    },
+    {
+      "symbol": "ANTM.JK",
+      "signalDate": "2026-04-08",
+      "entry": 3740,
+      "exit": 3680,
+      "returnPct": -0.016042780748663055,
+      "win": false
+    },
+    {
+      "symbol": "CPIN.JK",
+      "signalDate": "2026-04-08",
+      "entry": 4490,
+      "exit": 4450,
+      "returnPct": -0.008908685968819552,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-04-08",
+      "entry": 6200,
+      "exit": 6175,
+      "returnPct": -0.0040322580645161255,
+      "win": false
+    },
+    {
+      "symbol": "UNVR.JK",
+      "signalDate": "2026-05-06",
+      "entry": 1805,
+      "exit": 1810,
+      "returnPct": 0.0027700831024930483,
+      "win": true
+    },
+    {
+      "symbol": "ICBP.JK",
+      "signalDate": "2026-05-07",
+      "entry": 7175,
+      "exit": 7175,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "BRIS.JK",
+      "signalDate": "2026-05-07",
+      "entry": 1990,
+      "exit": 1990,
+      "returnPct": 0,
+      "win": false
+    },
+    {
+      "symbol": "INCO.JK",
+      "signalDate": "2026-05-11",
+      "entry": 6025,
+      "exit": 6025,
+      "returnPct": 0,
+      "win": false
+    }
+  ]
 }

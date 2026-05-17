@@ -90,7 +90,7 @@ export function buildScreenerInput(bars: OhlcvBar[]): ScreenerInput | null {
   return {
     current,
     previous,
-    priceMa5: simpleMovingAverage(closes.slice(0, -1), 5) ?? current.close,
+    priceMa5: simpleMovingAverage(closes, 5) ?? current.close,
     atr: calculateAtr(bars).at(-1) ?? null,
     rsi: calculateRsi(closes).at(-1) ?? null,
     macd: macd.macd.at(-1) ?? null,

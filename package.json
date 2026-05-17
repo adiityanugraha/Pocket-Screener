@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test \"src/lib/*.test.mts\""
+    "test": "node --experimental-strip-types --test \"src/lib/*.test.mts\"",
+    "backtest": "node --experimental-strip-types scripts/backtest-offline.mjs"
   },
   "dependencies": {
     "lightweight-charts": "^5.2.0",
