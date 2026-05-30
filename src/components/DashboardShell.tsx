@@ -3,9 +3,7 @@ import type { ReactNode } from "react";
 
 const navItems = [
   { label: "Dashboard", href: "/" },
-  { label: "Screener", href: "/" },
   { label: "Backtest", href: "/backtest" },
-  { label: "Model", href: "/backtest" },
 ];
 
 const marketStats = [
@@ -79,14 +77,18 @@ export function DashboardShell({
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {marketStats.map((stat) => (
                     <div
-                      className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3"
+                      className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2.5 transition-colors hover:border-white/20 hover:bg-white/[0.06] sm:px-4 sm:py-3"
                       key={stat.label}
                     >
-                      <p className="text-xs text-slate-400">{stat.label}</p>
-                      <p className={`mt-1 text-lg font-semibold ${stat.tone}`}>
+                      <p className="text-[11px] text-slate-400 sm:text-xs">
+                        {stat.label}
+                      </p>
+                      <p
+                        className={`mt-1 text-base font-semibold sm:text-lg ${stat.tone}`}
+                      >
                         {stat.value}
                       </p>
                     </div>
@@ -112,7 +114,7 @@ export function DashboardShell({
             </div>
           </header>
 
-          <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6 xl:px-8">
+          <div className="animate-fade-in mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6 xl:px-8">
             {children}
           </div>
         </div>

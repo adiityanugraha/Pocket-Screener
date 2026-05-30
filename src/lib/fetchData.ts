@@ -9,6 +9,7 @@ export type FetchMarketDataOptions = {
   cacheTtlMs?: number;
   forceRefresh?: boolean;
   proxyUrl?: string;
+  concurrency?: number;
 };
 
 type YahooFinanceBar = {
@@ -42,6 +43,7 @@ type CachedMarketData = {
 const DEFAULT_RANGE: YahooRange = "6mo";
 const DEFAULT_INTERVAL: YahooInterval = "1d";
 const DEFAULT_CACHE_TTL_MS = 15 * 60 * 1000;
+const DEFAULT_FETCH_CONCURRENCY = 8;
 const CACHE_PREFIX = "pocket-screener:ohlcv";
 const SAME_ORIGIN_YAHOO_PROXY = "/api/yahoo?url=";
 
@@ -102,20 +104,36 @@ export async function fetchOhlcv(
   return bars;
 }
 
+// Fetch many symbols resiliently: limited concurrency to avoid Yahoo
+// rate-limits, and individual failures are skipped so a single bad symbol
+// never breaks the whole screener run.
 export async function fetchManyDailyOhlcv(
   symbols: string[],
   options: FetchMarketDataOptions = {},
 ): Promise<Record<string, OhlcvBar[]>> {
-  const entries = await Promise.all(
-    symbols.map(async (symbol) => {
-      const yahooSymbol = normalizeIdxSymbol(symbol);
-      const bars = await fetchDailyOhlcv(yahooSymbol, options);
+  const batchSize = options.concurrency ?? DEFAULT_FETCH_CONCURRENCY;
+  const result: Record<string, OhlcvBar[]> = {};
 
-      return [yahooSymbol, bars] as const;
-    }),
-  );
+  for (let start = 0; start < symbols.length; start += batchSize) {
+    const batch = symbols.slice(start, start + batchSize);
+    const settled = await Promise.allSettled(
+      batch.map(async (symbol) => {
+        const yahooSymbol = normalizeIdxSymbol(symbol);
+        const bars = await fetchDailyOhlcv(yahooSymbol, options);
 
-  return Object.fromEntries(entries);
+        return [yahooSymbol, bars] as const;
+      }),
+    );
+
+    for (const outcome of settled) {
+      if (outcome.status === "fulfilled") {
+        const [yahooSymbol, bars] = outcome.value;
+        result[yahooSymbol] = bars;
+      }
+    }
+  }
+
+  return result;
 }
 
 export function parseYahooChartResponse(

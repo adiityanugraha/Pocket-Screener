@@ -46,7 +46,7 @@ function StatCard({
   hint?: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3">
+    <div className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 transition-colors hover:border-white/20 hover:bg-white/[0.06]">
       <p className="text-xs text-slate-400">{label}</p>
       <p className={`mt-1 text-xl font-semibold tabular-nums ${tone}`}>
         {value}

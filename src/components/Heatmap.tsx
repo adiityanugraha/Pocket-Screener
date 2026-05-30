@@ -119,7 +119,7 @@ export function Heatmap() {
             const hasData = cell.trades > 0;
             return (
               <div
-                className={`flex flex-col justify-between rounded-lg p-4 transition-colors ${toneFor(
+                className={`flex flex-col justify-between rounded-lg p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30 ${toneFor(
                   cell.avgReturn,
                   hasData,
                 )}`}
