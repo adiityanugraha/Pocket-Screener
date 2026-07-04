@@ -1,9 +1,9 @@
-"""Market Data API — OHLCV + indikator pre-computed, dilayani dari cache Redis.
+"""Market Data API - OHLCV + indikator pre-computed, dilayani dari cache Redis.
 
 GET /api/market-data/{ticker}
   Ambil seri harian (open/high/low/close/volume/value + RSI/MACD/BB/ATR/VWAP)
   dari tabel market_data. Indikator sudah dihitung & disimpan saat data pipeline
-  (Day 3), jadi endpoint ini hanya membaca — cepat & cocok di-cache.
+  (Day 3), jadi endpoint ini hanya membaca - cepat & cocok di-cache.
 
   Alur: cek Redis (TTL_PRICE) -> bila miss, query PostgreSQL -> cache -> kembalikan.
 

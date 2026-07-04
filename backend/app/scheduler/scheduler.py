@@ -1,6 +1,6 @@
-"""Scheduler APScheduler — jadwal job harian zona waktu WIB (IDX).
+"""Scheduler APScheduler - jadwal job harian zona waktu WIB (IDX).
 
-Jadwal (Asia/Jakarta) — Phase 2 + tambahan Phase 3 (Day 13):
+Jadwal (Asia/Jakarta) - Phase 2 + tambahan Phase 3 (Day 13):
   07:00  Update market data            -> job_update_market_data
   07:15  Refresh fundamental_derived   -> job_refresh_fundamental_derived   (P3)
   07:30  Jalankan 9 strategi           -> job_run_all_strategies            (P3)
@@ -42,7 +42,7 @@ log = logging.getLogger("scheduler")
 
 TIMEZONE = "Asia/Jakarta"
 
-# (job_id, fungsi, jam, menit, day_of_week) — day_of_week None = setiap hari.
+# (job_id, fungsi, jam, menit, day_of_week) - day_of_week None = setiap hari.
 SCHEDULE: list[tuple[str, object, int, int, str | None]] = [
     ("update_market_data", jobs.job_update_market_data, 7, 0, None),
     ("refresh_fundamental_derived", jobs.job_refresh_fundamental_derived, 7, 15, None),
@@ -54,11 +54,11 @@ SCHEDULE: list[tuple[str, object, int, int, str | None]] = [
     ("forecast_1615", jobs.job_generate_forecasts, 16, 15, None),
     ("strength_1630", jobs.job_generate_strength, 16, 30, None),
     ("ai_report_1700", jobs.job_generate_reports, 17, 0, None),
-    # Phase 4 — job malam quant (berat, dijalankan saat pasar sudah tutup).
+    # Phase 4 - job malam quant (berat, dijalankan saat pasar sudah tutup).
     ("quant_metrics_1800", jobs.job_generate_quant_metrics, 18, 0, None),
     ("correlation_1900", jobs.job_update_correlation, 19, 0, None),
     ("monte_carlo_2000", jobs.job_run_monte_carlo, 20, 0, None),
-    # Phase 5 — job malam lapisan AI (setelah quant; urutan = dependency).
+    # Phase 5 - job malam lapisan AI (setelah quant; urutan = dependency).
     ("knowledge_base_2030", jobs.job_refresh_knowledge_base, 20, 30, None),
     ("ai_analysis_2100", jobs.job_generate_ai_analysis, 21, 0, None),
     ("market_narrative_2130", jobs.job_generate_market_narrative, 21, 30, None),
@@ -92,7 +92,7 @@ def build_scheduler() -> BackgroundScheduler:
 
 
 def start() -> BackgroundScheduler:
-    """Bangun & jalankan scheduler (idempoten — start kedua diabaikan)."""
+    """Bangun & jalankan scheduler (idempoten - start kedua diabaikan)."""
     global _scheduler
     if _scheduler is not None and _scheduler.running:
         return _scheduler

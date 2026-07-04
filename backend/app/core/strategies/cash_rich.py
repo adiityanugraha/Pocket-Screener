@@ -1,4 +1,4 @@
-"""Strategi CASH RICH (Phase 3 Day 6) — neraca sangat kuat (kas dominan).
+"""Strategi CASH RICH (Phase 3 Day 6) - neraca sangat kuat (kas dominan).
 
 Kriteria (blueprint):
   a. Cash and cash equivalents   >= 0.7 x Market Cap

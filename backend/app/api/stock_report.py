@@ -73,7 +73,7 @@ def _predict_up(bars: list[MarketData]) -> float | None:
         return None
     try:
         return inference.predict_from_features(feature_vector).probability_up
-    except Exception:  # noqa: BLE001 — ML opsional; report tetap jalan tanpa ML
+    except Exception:  # noqa: BLE001 - ML opsional; report tetap jalan tanpa ML
         return None
 
 

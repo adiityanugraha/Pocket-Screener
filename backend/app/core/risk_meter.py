@@ -1,4 +1,4 @@
-"""Risk Meter — ukur tingkat risiko saham (Low / Medium / High).
+"""Risk Meter - ukur tingkat risiko saham (Low / Medium / High).
 
 Sesuai blueprint Phase 2 (Risk Meter), empat parameter risiko digabung jadi
 satu risk score 0-100 (makin tinggi = makin berisiko) lalu diklasifikasi:
@@ -13,7 +13,7 @@ satu risk score 0-100 (makin tinggi = makin berisiko) lalu diklasifikasi:
 Klasifikasi: score < 34 -> LOW, < 67 -> MEDIUM, selain itu HIGH.
 
 Beta dihitung terhadap **proxy index equal-weighted** (rata-rata return harian
-seluruh saham di market_data) karena IHSG tidak disimpan — universe hanya 80
+seluruh saham di market_data) karena IHSG tidak disimpan - universe hanya 80
 saham yang di-fetch server-side. Bila proxy tak tersedia, bobot Beta (15%)
 diredistribusi ke tiga metrik lain.
 

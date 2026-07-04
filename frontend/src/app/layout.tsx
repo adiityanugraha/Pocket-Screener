@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Vestigo · IDX Stock Screener",
   description:
-    "Vestigo — screener saham IDX dengan analitik kuantitatif & AI. Alat bantu analisis & edukasi, bukan nasihat keuangan.",
+    "Vestigo - screener saham IDX dengan analitik kuantitatif & AI. Alat bantu analisis & edukasi, bukan nasihat keuangan.",
 };
 
 export default function RootLayout({

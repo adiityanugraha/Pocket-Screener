@@ -3,7 +3,7 @@
 Mengambil konteks KONSEP relevan dari vector store lokal untuk sebuah query, lalu
 memformatnya menjadi blok teks siap-sisip ke prompt LLM. Aman-gagal: bila lapisan
 AI nonaktif atau knowledge base belum di-seed, kembalikan [] / "" sehingga fitur
-LLM tetap jalan (tanpa konteks konsep) — angka tetap dari tool call (grounding).
+LLM tetap jalan (tanpa konteks konsep) - angka tetap dari tool call (grounding).
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ DEFAULT_TOP_K = 4
 def retrieve(query: str, top_k: int = DEFAULT_TOP_K, min_score: float | None = None) -> list[dict[str, Any]]:
     """Konsep paling relevan untuk `query` (cosine di store lokal).
 
-    Mengembalikan [] bila AI nonaktif, store kosong, atau query kosong — caller
+    Mengembalikan [] bila AI nonaktif, store kosong, atau query kosong - caller
     harus tahan terhadap konteks kosong.
     """
     if not query or not query.strip():
@@ -30,7 +30,7 @@ def retrieve(query: str, top_k: int = DEFAULT_TOP_K, min_score: float | None = N
         return []
     try:
         query_vector = embeddings.embed_query(query)
-    except Exception:  # noqa: BLE001 — RAG opsional; jangan jatuhkan caller
+    except Exception:  # noqa: BLE001 - RAG opsional; jangan jatuhkan caller
         return []
     hits = store.search(query_vector, top_k=top_k)
     if min_score is not None:

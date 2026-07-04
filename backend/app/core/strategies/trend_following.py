@@ -1,4 +1,4 @@
-"""Strategi TREND FOLLOWING (Phase 3 Day 2) — uptrend MA tersusun rapi.
+"""Strategi TREND FOLLOWING (Phase 3 Day 2) - uptrend MA tersusun rapi.
 
 Kriteria (blueprint):
   a. Price       > Price MA 20

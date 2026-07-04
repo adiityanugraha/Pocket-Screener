@@ -1,7 +1,7 @@
 """Backfill screening_history dari seluruh data historis market_data.
 
 Untuk tiap ticker, jalankan screener pada setiap "slice" (bar 0..i) sehingga
-kandidat yang lolos pada tanggal bar-i tersimpan — meniru akumulasi yang nanti
+kandidat yang lolos pada tanggal bar-i tersimpan - meniru akumulasi yang nanti
 dihasilkan scheduler harian (Day 13). Idempoten: upsert per (date, ticker, strategy).
 
 Jalankan (dari backend/, venv aktif, DATABASE_URL terisi):

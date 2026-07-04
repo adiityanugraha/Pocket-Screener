@@ -1,6 +1,6 @@
 "use client";
 
-// Chat With Stock (Phase 5) — tanya-jawab streaming berbasis data sistem.
+// Chat With Stock (Phase 5) - tanya-jawab streaming berbasis data sistem.
 // session_id digenerate klien; streaming via streamChat().
 
 import { useRef, useState } from "react";

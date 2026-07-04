@@ -1,4 +1,4 @@
-"""AI Stock Report — ubah indikator + ML jadi analisis yang mudah dibaca.
+"""AI Stock Report - ubah indikator + ML jadi analisis yang mudah dibaca.
 
 Sesuai blueprint Phase 2 (AI Stock Report), output:
   - Bullish / Bearish Summary  (ringkasan + sentimen)
@@ -35,7 +35,7 @@ class ReportInput:
 
     rsi: float | None
     macd_histogram: float | None
-    prev_macd_histogram: float | None  # bar sebelumnya — deteksi golden/death cross
+    prev_macd_histogram: float | None  # bar sebelumnya - deteksi golden/death cross
     bb_position: float | None  # (close - lower) / (upper - lower), 0..1
     close: float | None
     bb_upper: float | None

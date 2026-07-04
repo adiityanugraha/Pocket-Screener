@@ -43,7 +43,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
     setReady(true);
   }, []);
 
-  // Tanggal data asli (sekali, fail-safe — kalau gagal, label sembunyi).
+  // Tanggal data asli (sekali, fail-safe - kalau gagal, label sembunyi).
   useEffect(() => {
     let active = true;
     getMeta()
@@ -51,7 +51,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
         if (active) setDataDate(m.data_date);
       })
       .catch(() => {
-        /* abaikan — footer cukup tanpa tanggal */
+        /* abaikan - footer cukup tanpa tanggal */
       });
     return () => {
       active = false;
@@ -63,7 +63,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* localStorage unavailable (private mode) — preference is session-only */
+      /* localStorage unavailable (private mode) - preference is session-only */
     }
   }, []);
 

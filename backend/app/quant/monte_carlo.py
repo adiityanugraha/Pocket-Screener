@@ -1,7 +1,7 @@
 """Monte Carlo Simulation (Phase 4, Day 10).
 
 Mengukur SEBARAN kemungkinan hasil masa depan dengan me-resample (bootstrap)
-return historis strategi — bukan satu lintasan tunggal. Sumber sampel = seri
+return historis strategi - bukan satu lintasan tunggal. Sumber sampel = seri
 return kohort 30-hari (sama dgn Performance/Equity, termasuk blok kas 0%), agar
 konsisten dengan metrik lain.
 

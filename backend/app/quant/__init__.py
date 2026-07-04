@@ -1,7 +1,7 @@
-"""Mesin kuantitatif Pocket Screener — Phase 4 (Quant Analytics & Validation).
+"""Mesin kuantitatif Pocket Screener - Phase 4 (Quant Analytics & Validation).
 
 Berisi logika murni numerik (numpy/pandas/scipy) untuk MEMVALIDASI 9 strategi
-Phase 3 secara historis — tanpa menambah model AI baru. Modul ditambahkan per
+Phase 3 secara historis - tanpa menambah model AI baru. Modul ditambahkan per
 hari sesuai Step_by_Step_Phase4:
 
   reconstruct.py        (Day 2-3)  rekonstruksi histori point-in-time + return series
@@ -16,7 +16,7 @@ hari sesuai Step_by_Step_Phase4:
   portfolio_builder.py  (Day 12)   alokasi portofolio per profil risiko
 
 CATATAN VALIDASI (keputusan 2026-06-12): hanya 5 strategi TEKNIKAL (bsjp, bpjs,
-breakout, trend_following, potential_reversal) yang divalidasi historis —
+breakout, trend_following, potential_reversal) yang divalidasi historis -
 strategi fundamental dikecualikan karena tidak ada data fundamental
 point-in-time (akan mengakibatkan look-ahead bias).
 """

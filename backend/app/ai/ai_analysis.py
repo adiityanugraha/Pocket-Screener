@@ -2,10 +2,10 @@
 
 Mengubah angka & indikator sistem menjadi analisis berbahasa manusia: ringkasan,
 faktor bullish, faktor risiko, dan confidence. UPGRADE dari AI Stock Report
-(Phase 2) & Explainable AI (Phase 3) — kini dinarasikan LLM, tetapi:
+(Phase 2) & Explainable AI (Phase 3) - kini dinarasikan LLM, tetapi:
 
   - ANGKA selalu dari tool (Composite Score, Forecast, Risk, S/R, Market Data,
-    Sector Rotation) — LLM dilarang mengarang (grounding).
+    Sector Rotation) - LLM dilarang mengarang (grounding).
   - `confidence` = Composite Score (0-100) DARI SISTEM, bukan dari LLM.
   - Output terstruktur (JSON) agar konsisten & mudah disimpan/ditampilkan.
 
@@ -30,7 +30,7 @@ _TOOLS = (
     "get_sector_rotation",
 )
 
-# Skema output terstruktur LLM (tanpa disclaimer — disclaimer di field terpisah).
+# Skema output terstruktur LLM (tanpa disclaimer - disclaimer di field terpisah).
 ANALYSIS_SCHEMA: dict[str, Any] = {
     "type": "object",
     "properties": {

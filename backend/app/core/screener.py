@@ -1,9 +1,9 @@
-"""Logika screener IDX — port PERSIS dari frontend/src/lib/screener.ts.
+"""Logika screener IDX - port PERSIS dari frontend/src/lib/screener.ts.
 
 Murni (tidak menyentuh DB / ML / cache) sehingga mudah diuji & dipakai ulang.
 Dua strategi intraday:
-  - BSJP (Beli Sore Jual Pagi)  — butuh lonjakan harga + volume kuat
-  - BPJS (Beli Pagi Jual Sore)  — sama, plus close >= open, syarat volume longgar
+  - BSJP (Beli Sore Jual Pagi)  - butuh lonjakan harga + volume kuat
+  - BPJS (Beli Pagi Jual Sore)  - sama, plus close >= open, syarat volume longgar
 
 Ambang & rumus disamakan baris-per-baris dengan TS (lihat komentar per blok).
 Indikator dihitung ulang dari bar via app.core.indicators agar identik dengan
@@ -147,7 +147,7 @@ def _criteria_for(
 
 
 def calculate_score(inp: ScreenerInput, strategy: Strategy) -> float:
-    """Skor komposit — port dari calculateScore (screener.ts)."""
+    """Skor komposit - port dari calculateScore (screener.ts)."""
     price_momentum = inp.current_close / inp.previous_close
     volume_momentum = inp.current_volume / max(inp.previous_volume, 1)
     value_score = _trade_value(inp.current_close, inp.current_volume) / MIN_DAILY_VALUE

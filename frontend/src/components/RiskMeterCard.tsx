@@ -21,7 +21,7 @@ function riskFill(risk: string): string {
 
 /** Fractions from the API (0.221) → "22,1%". */
 function pct(value: number | null): string {
-  return value === null ? "—" : `${fmtScore(value * 100, 1)}%`;
+  return value === null ? "-" : `${fmtScore(value * 100, 1)}%`;
 }
 
 export function RiskMeterCard({ symbol }: { symbol: string }) {
@@ -68,7 +68,7 @@ export function RiskMeterCard({ symbol }: { symbol: string }) {
               <div className="tile">
                 <p className="tile-label">Beta</p>
                 <p className="tile-val mono">
-                  {data.breakdown.beta === null ? "—" : fmtScore(data.breakdown.beta, 2)}
+                  {data.breakdown.beta === null ? "-" : fmtScore(data.breakdown.beta, 2)}
                 </p>
               </div>
             </div>

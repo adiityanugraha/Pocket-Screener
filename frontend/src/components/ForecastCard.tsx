@@ -2,7 +2,7 @@
 
 // Probability Forecast card (Phase 3).
 // P(return > 0) untuk 1D / 5D / 20D dari GET /api/forecast/{ticker} + confidence
-// + disclaimer (wajib tampil — alat bantu, bukan rekomendasi).
+// + disclaimer (wajib tampil - alat bantu, bukan rekomendasi).
 
 import { getForecast, type ForecastResponse } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
@@ -72,7 +72,7 @@ export function ForecastCard({ symbol }: { symbol: string }) {
             ))}
           </div>
           <p className="feature-note">
-            Peluang harga ditutup naik pada tiap horizon menurut model ML — di atas
+            Peluang harga ditutup naik pada tiap horizon menurut model ML - di atas
             50% condong menguat.
           </p>
           <p className="disclaimer">{data.disclaimer}</p>

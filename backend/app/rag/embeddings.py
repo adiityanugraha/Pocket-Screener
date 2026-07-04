@@ -3,11 +3,11 @@
 Memakai client Gemini yang sama dengan llm_client (model embedding default
 gemini-embedding-001). Output di-set 768 dimensi (lebih ringkas & cepat untuk
 KB kecil). Aman-gagal: bila lapisan AI nonaktif (GEMINI_API_KEY kosong),
-melempar LLMError — caller harus menanganinya.
+melempar LLMError - caller harus menanganinya.
 
 Task type Gemini meningkatkan kualitas retrieval: dokumen di-embed sebagai
 RETRIEVAL_DOCUMENT, query sebagai RETRIEVAL_QUERY. Catatan: untuk dimensi < 3072,
-embedding tidak ternormalisasi otomatis — vector_store menormalkan saat cosine.
+embedding tidak ternormalisasi otomatis - vector_store menormalkan saat cosine.
 """
 
 from __future__ import annotations

@@ -5,7 +5,7 @@ POST /api/portfolio-builder
   Menyusun alokasi portofolio (Composite Score + Risk Meter + Correlation) sesuai
   profil risiko. Opsional menyimpan hasil ke tabel portfolio (save=true).
 
-BUKAN nasihat keuangan — hanya alat bantu analisis/edukasi.
+BUKAN nasihat keuangan - hanya alat bantu analisis/edukasi.
 """
 
 from __future__ import annotations

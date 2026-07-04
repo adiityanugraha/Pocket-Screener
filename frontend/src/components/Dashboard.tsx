@@ -7,7 +7,7 @@ import { RiskMeterCard } from "./RiskMeterCard";
 import { SupportResistanceCard } from "./SupportResistanceCard";
 
 // Dashboard menampilkan KONTEKS PASAR: IHSG (Indeks Harga Saham Gabungan).
-// Simbol dikunci ke IHSG — chart, verdict AI, risk meter, dan support/resistance.
+// Simbol dikunci ke IHSG - chart, verdict AI, risk meter, dan support/resistance.
 // Kartu menyesuaikan kedalaman sendiri lewat useMode (Lite vs Pro).
 const IHSG_SYMBOL = "IHSG";
 

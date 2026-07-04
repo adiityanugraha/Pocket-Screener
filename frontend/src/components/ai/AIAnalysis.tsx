@@ -1,6 +1,6 @@
 "use client";
 
-// AI Analyst (Phase 5) — narasi AI ter-grounding per saham.
+// AI Analyst (Phase 5) - narasi AI ter-grounding per saham.
 // Input ticker -> GET /api/ai-analysis/{ticker}.
 
 import { useState } from "react";
@@ -17,7 +17,7 @@ export function AIAnalysis() {
   return (
     <VCard
       title="AI Analyst per-saham"
-      sub="Ringkasan + faktor — angka dari sistem, dinarasikan AI"
+      sub="Ringkasan + faktor - angka dari sistem, dinarasikan AI"
       subMono={false}
     >
       <form
@@ -83,7 +83,7 @@ export function AIAnalysis() {
             </div>
           )}
           <p className="feature-note">
-            Analisis satu saham — ringkasan, faktor bullish & risiko — dengan confidence
+            Analisis satu saham - ringkasan, faktor bullish & risiko - dengan confidence
             dari Composite Score sistem.
           </p>
           <p className="disclaimer">{data.disclaimer}</p>

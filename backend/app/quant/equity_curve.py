@@ -2,8 +2,8 @@
 
 Memvisualkan pertumbuhan modal strategi dari waktu ke waktu beserta puncak
 (high-water mark) dan drawdown. Memakai SERI RETURN YANG SAMA dengan Performance
-Metrics (Day 4) — rebalancing kohort non-overlap H hari (lihat
-performance_metrics.METODOLOGI) — sehingga nilai akhir equity konsisten dengan
+Metrics (Day 4) - rebalancing kohort non-overlap H hari (lihat
+performance_metrics.METODOLOGI) - sehingga nilai akhir equity konsisten dengan
 CAGR/MaxDD yang dilaporkan di /api/performance.
 
 Nilai disimpan TER-NORMALISASI (modal awal = 1.0) agар bebas dari asumsi

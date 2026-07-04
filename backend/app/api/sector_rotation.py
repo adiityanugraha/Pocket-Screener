@@ -6,9 +6,9 @@ GET /api/sector-rotation
   AI Analyst Engine & Market Narrator (Phase 5).
 
 Desain HEMAT TRANSFER (Neon free tier): hanya memuat window terakhir (≈ window
-terbesar + bantalan) dan KOLOM ticker/date/close saja — tidak memuat seluruh
+terbesar + bantalan) dan KOLOM ticker/date/close saja - tidak memuat seluruh
 market_data. Hasil di-cache di Redis (cache-only; tidak ada tabel histori, sama
-seperti Monte Carlo Phase 4 — snapshot sektor terkini cukup untuk narasi AI).
+seperti Monte Carlo Phase 4 - snapshot sektor terkini cukup untuk narasi AI).
 
 Query params:
   as_of    : YYYY-MM-DD (default: tanggal terbaru di market_data)

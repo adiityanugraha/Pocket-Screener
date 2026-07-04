@@ -1,4 +1,4 @@
-"""Strategi POTENTIAL REVERSAL (Phase 3 Day 3) — keluar dari fase koreksi.
+"""Strategi POTENTIAL REVERSAL (Phase 3 Day 3) - keluar dari fase koreksi.
 
 Kriteria (blueprint):
   a. Price        > Price MA 10
@@ -9,7 +9,7 @@ Kriteria (blueprint):
   f. Volume       > Volume MA 20
 
 Intuisi: harga baru saja menembus MA10 dari bawah (kemarin di bawah MA10, hari ini
-di atas) tetapi masih di bawah MA20 — awal pemulihan dari koreksi, dikonfirmasi
+di atas) tetapi masih di bawah MA20 - awal pemulihan dari koreksi, dikonfirmasi
 volume di atas rata-rata. Butuh >= 20 bar (MA20 & Volume MA20) -> NOT_EVALUATED.
 """
 

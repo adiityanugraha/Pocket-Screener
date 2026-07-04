@@ -1,13 +1,13 @@
-"""Retrieval-Augmented Generation (RAG) — Phase 5.
+"""Retrieval-Augmented Generation (RAG) - Phase 5.
 
 Memberi LLM KONTEKS DOMAIN statis (definisi indikator, arti 9 strategi, cara
 membaca metrik quant, konsep breadth/S-R/risk) agar jawaban tidak generik.
 Pembagian peran tegas (anti-halusinasi):
   - Vector store menyimpan PENJELASAN/KONSEP (statis, di-embed sekali).
-  - ANGKA aktual TIDAK di-embed — diambil live via tool call (app/ai/tools.py)
+  - ANGKA aktual TIDAK di-embed - diambil live via tool call (app/ai/tools.py)
     agar selalu mutakhir & akurat.
 
-Vector store = pgvector di Neon (extension PostgreSQL) — tanpa infra baru.
+Vector store = pgvector di Neon (extension PostgreSQL) - tanpa infra baru.
 Embedding = Gemini text-embedding-004 (provider sama dengan LLM).
 
 Modul ditambahkan per hari sesuai Step_by_Step_Phase5:

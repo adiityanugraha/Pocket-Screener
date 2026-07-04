@@ -1,4 +1,4 @@
-"""Sector Rotation — kekuatan relatif & rotasi sektor lintas waktu (Phase 5 Day 2).
+"""Sector Rotation - kekuatan relatif & rotasi sektor lintas waktu (Phase 5 Day 2).
 
 Fitur ini "ditunda sejak Phase 1"; diimplementasikan di Phase 5 karena menjadi
 PRASYARAT AI Analyst Engine & Market Narrator (mereka butuh konteks sektor).
@@ -15,7 +15,7 @@ Definisi:
   - return sektor  : rata-rata equal-weight return anggota sektor pada window itu.
   - relative strength (RS) : return sektor - return IHSG pada window yang sama
                               (kelebihan/kekurangan vs pasar).
-  - momentum       : RS(1M) - RS(3M) — RS yang membaik (>0) berarti akselerasi.
+  - momentum       : RS(1M) - RS(3M) - RS yang membaik (>0) berarti akselerasi.
   - kuadran rotasi : LEADING (RS>0, mom>0), WEAKENING (RS>0, mom<0),
                      LAGGING (RS<0, mom<0), IMPROVING (RS<0, mom>0).
 
@@ -162,7 +162,7 @@ def compute_rotation(
     limitations: list[str] = []
     if not market_available:
         limitations.append(
-            "Data IHSG tidak tersedia pada rentang ini — relative strength & "
+            "Data IHSG tidak tersedia pada rentang ini - relative strength & "
             "kuadran rotasi tidak dapat dihitung (hanya return absolut sektor)."
         )
     if not sector_inputs:

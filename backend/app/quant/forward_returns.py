@@ -3,12 +3,12 @@
 Melengkapi rekonstruksi (Day 2): untuk SETIAP kandidat yang lolos di
 strategy_results (5 strategi teknikal), hitung return forward pada horizon
 +1 / +3 / +7 / +30 hari bursa dari harga close tanggal screening, lalu
-materialisasi ke tabel replay_history. Tabel ini menjadi "trade log" — dasar
+materialisasi ke tabel replay_history. Tabel ini menjadi "trade log" - dasar
 Equity Curve (Day 5), Performance Metrics (Day 4), dan Monte Carlo (Day 10).
 
 KONVENSI return:
   - Entry  = close pada tanggal screening T (P).
-  - Exit   = close pada bar ke-h SETELAH T (offset HARI BURSA, bukan kalender —
+  - Exit   = close pada bar ke-h SETELAH T (offset HARI BURSA, bukan kalender -
              menghindari celah akhir pekan/libur & bar hilang).
   - gross  = close[T+h] / close[T] - 1.
   - net    = gross - ROUND_TRIP_COST (biaya beli+jual+slippage sekali putar).
@@ -192,7 +192,7 @@ def build_replay_history(
 def load_return_series(
     db: Session, strategy: str, horizon: int = 1
 ) -> list[tuple[date, float]]:
-    """Seri (date, net_return) untuk satu strategi/horizon — dasar equity & metrik.
+    """Seri (date, net_return) untuk satu strategi/horizon - dasar equity & metrik.
 
     Hanya trade yang sudah jatuh tempo (kolom ret_{h} tidak NULL), urut tanggal.
     """

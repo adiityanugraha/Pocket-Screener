@@ -1,7 +1,7 @@
 """Konfigurasi aplikasi.
 
 Semua nilai sensitif (DATABASE_URL, REDIS_URL) dibaca dari environment /
-file .env — TIDAK PERNAH di-hardcode di kode, sehingga aman di-commit.
+file .env - TIDAK PERNAH di-hardcode di kode, sehingga aman di-commit.
 Lihat backend/.env.example untuk template.
 """
 
@@ -37,13 +37,13 @@ class Settings(BaseSettings):
 
     # --- Phase 5: lapisan AI (LLM + embedding) ---
     # API key Google Gemini (free tier, dari Google AI Studio). Disimpan HANYA di
-    # environment server — tidak pernah di kode/klien. Bila kosong, lapisan AI
+    # environment server - tidak pernah di kode/klien. Bila kosong, lapisan AI
     # nonaktif (aman-gagal): wrapper LLM jadi tak-tersedia & caller fallback.
     gemini_api_key: str | None = None
     # Nama model dibuat generik agar wrapper provider-agnostic (mudah ganti
     # provider tanpa ubah kode pemanggil).
     # gemini-2.5-flash-lite: kuota harian free tier jauh lebih tinggi daripada
-    # gemini-2.5-flash (yang hanya ~20 req/hari) — penting untuk generasi batch
+    # gemini-2.5-flash (yang hanya ~20 req/hari) - penting untuk generasi batch
     # (mis. 81 saham di job malam). Kualitas cukup untuk tugas narasi.
     llm_model: str = "gemini-2.5-flash-lite"
     embedding_model: str = "gemini-embedding-001"

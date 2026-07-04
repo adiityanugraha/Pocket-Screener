@@ -1,6 +1,6 @@
 "use client";
 
-// Strategy Benchmark (Phase 4) — metrik seluruh strategi tervalidasi + IHSG.
+// Strategy Benchmark (Phase 4) - metrik seluruh strategi tervalidasi + IHSG.
 // GET /api/benchmark. Menandai strategi yang mengalahkan pasar.
 
 import { getBenchmark, type BenchmarkRow } from "@/lib/api";
@@ -38,7 +38,7 @@ export function StrategyBenchmark() {
   return (
     <VCard
       title="Strategy Benchmark"
-      sub="5 strategi teknikal vs IHSG (buy & hold) — apakah mengalahkan pasar?"
+      sub="5 strategi teknikal vs IHSG (buy & hold) - apakah mengalahkan pasar?"
       subMono={false}
       cached={!!data?.cached}
     >

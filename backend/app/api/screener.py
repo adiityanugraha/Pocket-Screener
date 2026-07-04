@@ -1,4 +1,4 @@
-"""Screener API — port server-side dari predictionPipeline.ts (Phase 1).
+"""Screener API - port server-side dari predictionPipeline.ts (Phase 1).
 
 GET /api/screener
   Muat bar harian per ticker dari market_data -> jalankan screener (BSJP/BPJS)
@@ -218,7 +218,7 @@ def _predict(bars: list[MarketData]) -> inference.Prediction | None:
         return None
     try:
         return inference.predict_from_features(feature_vector)
-    except Exception:  # noqa: BLE001 — ML opsional; screener tetap jalan tanpa prediksi
+    except Exception:  # noqa: BLE001 - ML opsional; screener tetap jalan tanpa prediksi
         return None
 
 

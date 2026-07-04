@@ -30,7 +30,7 @@ export function ScreenerHistoryCard() {
               <div className="wr-box" key={s.strategy}>
                 <p className="section-label">{s.strategy} winrate</p>
                 <p className="big-num mono num-up">
-                  {s.winrate === null ? "—" : `${fmtScore(s.winrate * 100, 1)}%`}
+                  {s.winrate === null ? "-" : `${fmtScore(s.winrate * 100, 1)}%`}
                 </p>
                 <p className="card-sub mono">
                   {s.wins}W / {s.losses}L dari {s.evaluated}

@@ -1,4 +1,4 @@
-"""Fetch OHLCV harian dari Yahoo Finance — sisi server (bypass CORS).
+"""Fetch OHLCV harian dari Yahoo Finance - sisi server (bypass CORS).
 
 Menggantikan fetch browser Phase 1 (frontend/src/lib/fetchData.ts). Logika
 disamakan:

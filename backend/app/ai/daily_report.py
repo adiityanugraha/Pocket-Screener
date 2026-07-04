@@ -105,7 +105,7 @@ def _overview(report: dict[str, Any]) -> str:
 # Format Markdown & PDF
 # --------------------------------------------------------------------------- #
 def to_markdown(report: dict[str, Any]) -> str:
-    lines = [f"# Laporan Harian Pocket Screener — {report.get('date') or '-'}", ""]
+    lines = [f"# Laporan Harian Pocket Screener - {report.get('date') or '-'}", ""]
     lines += ["## Ringkasan", report.get("overview") or "-", ""]
 
     lines.append("## Top Opportunities")

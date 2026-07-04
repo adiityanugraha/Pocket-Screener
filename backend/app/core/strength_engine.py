@@ -11,10 +11,10 @@ Formula (transparan & configurable):
 
 Bobot default per TIPE strategi (configurable per request):
     technical   = 1.0
-    fundamental = 1.5   (lebih berat — sinyal kualitas jangka panjang)
+    fundamental = 1.5   (lebih berat - sinyal kualitas jangka panjang)
 full_points default 6.0 (≈ lolos seluruh 4 strategi fundamental -> 100).
 
-Logika murni (compute_strength) tak menyentuh DB — pemanggil menyuplai daftar
+Logika murni (compute_strength) tak menyentuh DB - pemanggil menyuplai daftar
 strategi yang lolos beserta tipenya.
 """
 

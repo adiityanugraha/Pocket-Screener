@@ -106,7 +106,7 @@ export type EquityPoint = {
 
 // Build a compounded equity curve from a strategy's sample trades. The sample
 // is a recent subset (not the full period), so this is a shape/illustration
-// of the strategy — headline stats use the precomputed full-period numbers.
+// of the strategy - headline stats use the precomputed full-period numbers.
 export function buildEquityCurve(trades: SampleTrade[]): EquityPoint[] {
   const ordered = [...trades].sort((a, b) =>
     a.signalDate.localeCompare(b.signalDate),

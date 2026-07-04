@@ -1,4 +1,4 @@
-"""SQLAlchemy ORM models — skema database Pocket Screener.
+"""SQLAlchemy ORM models - skema database Pocket Screener.
 
 Tabel (Phase 2):
   - stocks            : master daftar saham IDX
@@ -12,7 +12,7 @@ Tabel (Phase 2):
 Tabel (Phase 3):
   - fundamentals, fundamental_derived, strategy_results, forecast, strength_score
 
-Tabel (Phase 4 — Quant Validation, Day 1):
+Tabel (Phase 4 - Quant Validation, Day 1):
   - replay_history       : snapshot kandidat per strategi + return forward
   - strategy_performance : metrik kuantitatif per strategi/periode
   - equity_curve         : kurva pertumbuhan modal per strategi/tanggal
@@ -178,7 +178,7 @@ class Fundamental(Base):
       - QUARTER: cadangan bila sumber kuartalan ditambah kemudian.
 
     Field yang tidak tersedia gratis dari Yahoo untuk IDX dibiarkan None
-    (income_from_operations & gross_profit per-tahun, dividend_streak) — lihat
+    (income_from_operations & gross_profit per-tahun, dividend_streak) - lihat
     catatan keterbatasan di data/fundamentals_fetch.py. Berubah lambat
     (kuartalan); refresh harga-sensitif ada di FundamentalDerived.
     """
@@ -218,7 +218,7 @@ class StrategyResultRow(Base):
     """Hasil evaluasi SEMUA strategi per saham per hari (Phase 3 Day 7).
 
     Diisi GET /api/screener/all (lalu scheduler 07:30, Day 13). Satu baris per
-    (date, ticker, strategy) — termasuk yang GAGAL (passed=False) karena
+    (date, ticker, strategy) - termasuk yang GAGAL (passed=False) karena
     Strategy Matrix (Day 8) butuh pass/fail lengkap. Saham yang tidak bisa
     dievaluasi (data kurang) TIDAK disimpan. matched_criteria & skipped_criteria
     JSONB untuk Explainable AI (Day 10).
@@ -301,7 +301,7 @@ class StrengthScore(Base):
 
 
 class FundamentalDerived(Base):
-    """Metrik fundamental yang BERGANTUNG HARGA — refresh harian (Day 5).
+    """Metrik fundamental yang BERGANTUNG HARGA - refresh harian (Day 5).
 
     Dipisah dari Fundamental karena PE/PBV/MarketCap/DividendYield berubah tiap
     hari mengikuti harga, sedangkan laporan keuangan murni hanya berubah per
@@ -332,7 +332,7 @@ class FundamentalDerived(Base):
 
 
 # ============================================================================
-# Phase 4 — Quant Analytics & Validation (Day 1)
+# Phase 4 - Quant Analytics & Validation (Day 1)
 # ============================================================================
 
 
@@ -342,7 +342,7 @@ class ReplayHistory(Base):
     Materialisasi dari strategy_results (Phase 3) + harga forward dari
     market_data agar replay tanggal historis cepat tanpa join berat. Satu baris
     per (date, ticker, strategy). ret_* diisi BELAKANGAN saat horizonnya jatuh
-    tempo (mis. ret_30d 30 hari setelah `date`) — None bila belum tersedia.
+    tempo (mis. ret_30d 30 hari setelah `date`) - None bila belum tersedia.
 
     Hanya diisi untuk strategi yang DIVALIDASI HISTORIS (5 teknikal: bsjp, bpjs,
     breakout, trend_following, potential_reversal). Strategi fundamental
@@ -441,7 +441,7 @@ class CorrelationMatrix(Base):
 
     Universe DIBATASI (LQ45 / ter-screen / watchlist) karena O(n^2). Hanya
     pasangan unik disimpan dengan konvensi ticker_a < ticker_b. PK gabungan
-    (ticker_a, ticker_b, window) — `window` mis. "90d".
+    (ticker_a, ticker_b, window) - `window` mis. "90d".
     """
 
     __tablename__ = "correlation_matrix"
@@ -474,7 +474,7 @@ class Portfolio(Base):
 
 
 # --------------------------------------------------------------------------- #
-# Phase 5 — AI Financial Analyst
+# Phase 5 - AI Financial Analyst
 # --------------------------------------------------------------------------- #
 class AiReport(Base):
     """AI Analyst report per saham per tanggal (Phase 5 Day 5).

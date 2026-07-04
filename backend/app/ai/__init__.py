@@ -1,4 +1,4 @@
-"""Lapisan AI Pocket Screener — Phase 5 (AI Financial Analyst).
+"""Lapisan AI Pocket Screener - Phase 5 (AI Financial Analyst).
 
 Orkestrasi LLM di ATAS seluruh data & perhitungan Phase 1-4. Prinsip inti =
 GROUNDING: LLM hanya MENARASIKAN angka yang berasal dari endpoint/DB yang sudah

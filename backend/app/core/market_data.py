@@ -2,7 +2,7 @@
 
 Alur per ticker:
   1. fetch_daily_ohlcv (server-side, range 6mo)
-  2. hitung seri indikator (RSI, MACD, BB, ATR, VWAP) — identik dgn frontend
+  2. hitung seri indikator (RSI, MACD, BB, ATR, VWAP) - identik dgn frontend
   3. upsert tiap bar ke market_data (ON CONFLICT ticker+date -> update)
 
 Jalankan manual (Day 3 / testing):

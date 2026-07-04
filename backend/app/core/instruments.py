@@ -1,4 +1,4 @@
-"""Instrumen indeks (mis. IHSG) — pemisahan dari saham biasa.
+"""Instrumen indeks (mis. IHSG) - pemisahan dari saham biasa.
 
 IHSG = Indeks Harga Saham Gabungan (Jakarta Composite Index). Disimpan dengan
 ticker bersih "IHSG" (tanpa "^" agar aman di URL & primary key), dipetakan ke

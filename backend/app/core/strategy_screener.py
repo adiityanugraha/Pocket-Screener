@@ -5,7 +5,7 @@ GET /api/screener/all + strategy_results (Day 7). Berbeda dari app.api.screener
 (jalur Phase 2 BSJP/BPJS + ML + levels), runner ini netral-strategi: ia hanya
 mengembalikan kandidat yang LOLOS beserta matched_criteria (penjelasan otomatis).
 
-Indeks (IHSG) dikecualikan — bukan saham tradable.
+Indeks (IHSG) dikecualikan - bukan saham tradable.
 """
 
 from __future__ import annotations
@@ -48,7 +48,7 @@ def evaluate_ticker(
 
     Mengembalikan (bars, view, results) di mana results = {strategy_key:
     StrategyResult}. None bila ticker tak punya bar. Dipakai /api/explain &
-    /api/why (Day 10) — tak bergantung strategy_results sudah ter-persist.
+    /api/why (Day 10) - tak bergantung strategy_results sudah ter-persist.
     """
     bars = list(
         db.scalars(
@@ -66,7 +66,7 @@ def evaluate_ticker(
 def build_view_for(ticker: str, bars: list[MarketData], rows: list[Fundamental]) -> FundamentalView | None:
     """FundamentalView untuk satu ticker (None bila tak ada baris fundamentals).
 
-    Metrik harga-sensitif dihitung dari close TERBARU market_data — konsisten
+    Metrik harga-sensitif dihitung dari close TERBARU market_data - konsisten
     dengan fundamental_derived (Day 5), tanpa bergantung job derived sudah jalan.
     """
     if not rows or not bars:

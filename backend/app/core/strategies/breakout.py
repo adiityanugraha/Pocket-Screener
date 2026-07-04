@@ -1,4 +1,4 @@
-"""Strategi BREAKOUT (Phase 3 Day 2) — saham menembus dengan volume kuat.
+"""Strategi BREAKOUT (Phase 3 Day 2) - saham menembus dengan volume kuat.
 
 Kriteria (blueprint):
   a. Price   > Previous Price

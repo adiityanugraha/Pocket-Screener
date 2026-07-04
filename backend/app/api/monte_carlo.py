@@ -31,7 +31,7 @@ CACHE_KEY = "monte-carlo:{strategy}:hold={hold}:y={years}:sims={sims}"
 
 DISCLAIMER = (
     "Simulasi Monte Carlo BUKAN ramalan atau jaminan. Hasil mengasumsikan pola "
-    "return historis berulang & independen — kondisi pasar nyata bisa berbeda "
+    "return historis berulang & independen - kondisi pasar nyata bisa berbeda "
     "jauh. Gunakan hanya sebagai gambaran sebaran risiko, bukan prediksi."
 )
 

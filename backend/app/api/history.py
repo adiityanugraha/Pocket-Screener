@@ -93,7 +93,7 @@ def _bars_by_ticker(
     db: Session, history_rows: list[ScreeningHistory]
 ) -> dict[str, list[MarketData]]:
     """Hanya muat bar yang menjangkau rentang tanggal entri riwayat + horizon
-    (dari tanggal pick tertua sampai tanggal terbaru) — bukan seluruh histori.
+    (dari tanggal pick tertua sampai tanggal terbaru) - bukan seluruh histori.
     Hasil tracking IDENTIK karena semua bar yang dibutuhkan tetap termuat.
     """
     if not history_rows:

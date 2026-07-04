@@ -1,7 +1,7 @@
-"""Strategi TIMELESS (Phase 3 Day 7) — compounder jangka panjang.
+"""Strategi TIMELESS (Phase 3 Day 7) - compounder jangka panjang.
 
 Kriteria blueprint (10) dan status datanya di sumber Yahoo gratis:
-  a. Average RoE 5yr            >= 10    PROXY (RoE saat ini — histori 5thn
+  a. Average RoE 5yr            >= 10    PROXY (RoE saat ini - histori 5thn
                                           tak tersedia)
   b. Net Income (Growth: 3yr)   >= -5    EVALUASI (CAGR 3thn)
   c. Net Income (Annual)        >= 1T    EVALUASI (tahun fiskal terakhir)
@@ -44,7 +44,7 @@ SKIP_DIVIDEND_STREAK = (
 def _evaluate(
     view: FundamentalView, val_ma20: float
 ) -> tuple[dict[str, bool], dict[str, str]]:
-    # a. RoE — proxy: RoE saat ini (fraksi -> persen) bila rata-rata 5thn kosong.
+    # a. RoE - proxy: RoE saat ini (fraksi -> persen) bila rata-rata 5thn kosong.
     roe_pct = (
         view.roe_5yr_avg
         if view.roe_5yr_avg is not None
@@ -55,7 +55,7 @@ def _evaluate(
     # c. Net income tahun fiskal terakhir.
     ni_annual = view.annual[0].net_income if view.annual else None
 
-    # d. Price return — proxy atas histori yang tersedia.
+    # d. Price return - proxy atas histori yang tersedia.
     span_years = (
         view.price_return_span_days / 365 if view.price_return_span_days else None
     )
@@ -82,7 +82,7 @@ def _evaluate(
     descriptions = {
         "roe_min_10": (
             f"RoE {roe_pct:.1f}% >= 10%"
-            + (" (proxy RoE saat ini — rata-rata 5thn tak tersedia)" if roe_is_proxy else "")
+            + (" (proxy RoE saat ini - rata-rata 5thn tak tersedia)" if roe_is_proxy else "")
             if roe_pct is not None else ""
         ),
         "net_income_growth_3yr": (

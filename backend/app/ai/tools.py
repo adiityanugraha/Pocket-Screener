@@ -1,16 +1,16 @@
-"""Tools layer — jembatan GROUNDING (Phase 5 Day 4).
+"""Tools layer - jembatan GROUNDING (Phase 5 Day 4).
 
 Membungkus logika/endpoint Phase 1-4 sebagai "tool" yang dipanggil IN-PROCESS
 (bukan HTTP) dan mengembalikan dict berisi ANGKA LIVE dari sistem. Inilah sumber
 kebenaran angka untuk seluruh fitur LLM: LLM memanggil tool ini lalu MENARASIKAN
-hasilnya — tidak pernah mengarang angka.
+hasilnya - tidak pernah mengarang angka.
 
 Registry bersifat pluggable: tambah tool baru = tambah satu entri TOOLS. Fitur
 hari berikutnya (Day 5 AI Analyst, Day 7 Chat) memakai run_tool()/tool_specs().
 
 Catatan data: beberapa tool butuh data yang mungkin belum direkonstruksi di DB
 lokal (mis. strategy_results/forecast kosong sampai reconstruct dijalankan).
-Tool yang gagal/empty mengembalikan {"error": ...}, tidak melempar — caller aman.
+Tool yang gagal/empty mengembalikan {"error": ...}, tidak melempar - caller aman.
 """
 
 from __future__ import annotations
@@ -171,7 +171,7 @@ def run_tool(name: str, args: dict[str, Any] | None = None) -> dict[str, Any]:
         return {"error": str(exc.detail), "status": exc.status_code}
     except ValueError as exc:
         return {"error": str(exc)}
-    except Exception as exc:  # noqa: BLE001 — tool tak boleh menjatuhkan caller
+    except Exception as exc:  # noqa: BLE001 - tool tak boleh menjatuhkan caller
         return {"error": f"Tool '{name}' gagal: {exc}"}
     finally:
         db.close()

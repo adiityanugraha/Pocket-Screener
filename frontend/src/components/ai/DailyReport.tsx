@@ -1,6 +1,6 @@
 "use client";
 
-// AI Daily Report (Phase 5) — laporan harian + ekspor PDF/Markdown (Pro).
+// AI Daily Report (Phase 5) - laporan harian + ekspor PDF/Markdown (Pro).
 // GET /api/daily-report (auto-load); download via format=pdf|markdown.
 
 import { dailyReportUrl, getDailyReport } from "@/lib/api";
@@ -60,7 +60,7 @@ export function DailyReport() {
                     <span className="mono badge badge-info">{fmtScore(o.overall_score)}</span>
                   </li>
                 ))}
-                {state.data.top_opportunities.length === 0 && <li className="t3">—</li>}
+                {state.data.top_opportunities.length === 0 && <li className="t3">-</li>}
               </ul>
             </div>
 
@@ -72,7 +72,7 @@ export function DailyReport() {
                     <li key={h.ticker} className="between">
                       <span className="mini-sym">{h.ticker}</span>
                       <span className="mono num-up">
-                        {h.prob_5d != null ? `${fmtScore(h.prob_5d * 100, 0)}%` : "—"}
+                        {h.prob_5d != null ? `${fmtScore(h.prob_5d * 100, 0)}%` : "-"}
                       </span>
                     </li>
                   ))}
@@ -85,10 +85,10 @@ export function DailyReport() {
 
           <div className="factor-list" style={{ fontSize: 12 }}>
             <span>
-              Sektor terkuat: <span className="num-up">{state.data.strongest_sector ?? "—"}</span>
+              Sektor terkuat: <span className="num-up">{state.data.strongest_sector ?? "-"}</span>
             </span>
             <span>
-              Sektor terlemah: <span className="num-down">{state.data.weakest_sector ?? "—"}</span>
+              Sektor terlemah: <span className="num-down">{state.data.weakest_sector ?? "-"}</span>
             </span>
           </div>
 
@@ -99,7 +99,7 @@ export function DailyReport() {
                 {state.data.risk_warnings.map((w) => (
                   <li key={w.ticker}>
                     <span className="fi fi-down">!</span>
-                    {w.ticker}: risiko {w.risk} (skor {w.score ?? "—"})
+                    {w.ticker}: risiko {w.risk} (skor {w.score ?? "-"})
                   </li>
                 ))}
               </ul>

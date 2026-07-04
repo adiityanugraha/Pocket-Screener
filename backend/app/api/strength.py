@@ -59,7 +59,7 @@ def _strategy_types() -> dict[str, str]:
 
 
 def ticker_latest_date(db: Session, ticker: str) -> date_cls | None:
-    """Tanggal strategy_results TERBARU untuk ticker ini (bukan global) — hindari
+    """Tanggal strategy_results TERBARU untuk ticker ini (bukan global) - hindari
     artefak saham yang bar terakhirnya tertinggal sehari."""
     return db.scalar(
         select(func.max(StrategyResultRow.date)).where(StrategyResultRow.ticker == ticker)

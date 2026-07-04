@@ -6,7 +6,7 @@ GET /api/performance/{strategy}
   dihitung dari trade log replay_history. Disimpan ke strategy_performance &
   di-cache. SELALU menyertakan metodologi + disclaimer.
 
-Strategi fundamental DIKECUALIKAN dari validasi historis (404) — tidak ada data
+Strategi fundamental DIKECUALIKAN dari validasi historis (404) - tidak ada data
 fundamental point-in-time (lihat app/quant/__init__.py).
 
 Query params:

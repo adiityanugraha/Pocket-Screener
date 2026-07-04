@@ -104,7 +104,7 @@ export function DashboardShell({
     if (window.localStorage.getItem("vestigo.banner") === "0") setBannerOpen(false);
   }, []);
 
-  // Lite reflow: a Pro-only route is unreachable in Lite — bounce to Dashboard.
+  // Lite reflow: a Pro-only route is unreachable in Lite - bounce to Dashboard.
   useEffect(() => {
     if (ready && mode === "LITE" && PRO_ONLY_PATHS.includes(pathname)) {
       router.replace("/");

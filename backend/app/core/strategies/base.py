@@ -9,7 +9,7 @@ Kontrak penting:
                          Key BSJP/BPJS dipertahankan sama persis dengan Phase 2
                          (price_vs_previous, dst.) agar hasil regression-identik.
   - `matched_criteria` : deskripsi human-readable HANYA untuk kriteria yang lolos,
-                         berisi angka aktual — dipakai Explainable AI / "Why
+                         berisi angka aktual - dipakai Explainable AI / "Why
                          Selected" (Day 10) sehingga penjelasan otomatis akurat.
   - `evaluated=False`  : data tidak cukup untuk menilai (mis. bar < minimum);
                          beda makna dengan "dinilai lalu gagal".
@@ -63,7 +63,7 @@ class StrategyResult:
     skipped_criteria: list[str] = field(default_factory=list)
 
 
-#: Hasil baku saat data tidak cukup — semua strategi memakai ini agar seragam.
+#: Hasil baku saat data tidak cukup - semua strategi memakai ini agar seragam.
 NOT_EVALUATED = StrategyResult(passed=False, evaluated=False)
 
 

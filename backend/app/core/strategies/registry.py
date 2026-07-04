@@ -1,4 +1,4 @@
-"""Strategy Registry — daftar semua strategi screening (Phase 3 Day 1).
+"""Strategy Registry - daftar semua strategi screening (Phase 3 Day 1).
 
 Pola pluggable sesuai blueprint: menambah strategi baru = buat 1 file di
 folder ini yang memanggil `register(...)` saat import, lalu tambahkan nama
@@ -47,7 +47,7 @@ def register(strategy: Strategy) -> Strategy:
 
 
 def load_defaults() -> None:
-    """Import semua modul strategi default (idempoten — import di-cache Python)."""
+    """Import semua modul strategi default (idempoten - import di-cache Python)."""
     for module_name in _DEFAULT_MODULES:
         import_module(module_name)
 

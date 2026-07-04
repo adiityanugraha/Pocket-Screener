@@ -3,14 +3,14 @@
 Fondasi semua fitur quant (Replay, Performance, Equity Curve, Monte Carlo,
 Walk-Forward). Tabel strategy_results (Phase 3) hanya menumpuk sejak aplikasi
 live, jadi belum cukup untuk backtest. Modul ini MENJALANKAN ULANG strategi
-Phase 3 yang ASLI (dari registry — jaminan logika identik) atas SETIAP tanggal
+Phase 3 yang ASLI (dari registry - jaminan logika identik) atas SETIAP tanggal
 historis di market_data, lalu mengisi strategy_results untuk seluruh rentang.
 
 ATURAN ANTI LOOK-AHEAD (wajib):
   Saat menilai tanggal T, strategi hanya melihat bar dengan date <= T. Caranya:
   potong daftar bar menjadi window trailing yang BERAKHIR di T sebelum
   menjalankan strategi. Strategi teknikal Phase 3 hanya membaca bar terakhir
-  (= hari berjalan), bar sebelumnya, dan MA inklusif dari window — sehingga
+  (= hari berjalan), bar sebelumnya, dan MA inklusif dari window - sehingga
   evaluasi atas window <= T identik dengan "seandainya T adalah hari ini".
   Bar setelah T TIDAK pernah terlihat. Diuji di test_phase4_day2_reconstruct.
 
@@ -21,7 +21,7 @@ Yahoo, sehingga menjalankannya atas tanggal lampau memakai laporan keuangan
 TERKINI = look-ahead bias. Lihat app/quant/__init__.py.
 
 Penyimpanan: untuk menjaga ukuran DB (Neon free) hanya baris yang LOLOS yang
-disimpan secara default (only_passed=True) — backtest/replay/equity hanya butuh
+disimpan secara default (only_passed=True) - backtest/replay/equity hanya butuh
 kandidat yang lolos beserta return forward-nya (Day 3). Baris gagal historis
 tak pernah di-query (Strategy Matrix Day 8 hanya memakai tanggal terbaru/live).
 

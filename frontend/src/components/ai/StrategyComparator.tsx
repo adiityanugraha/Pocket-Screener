@@ -1,6 +1,6 @@
 "use client";
 
-// AI Strategy Comparator (Phase 5) — bandingkan 2 strategi teknikal.
+// AI Strategy Comparator (Phase 5) - bandingkan 2 strategi teknikal.
 // GET /api/compare-strategy?a=&b=. Hanya 5 strategi teknikal tervalidasi.
 
 import { useState } from "react";
@@ -80,8 +80,8 @@ export function StrategyComparator() {
                 {metricKeys(data).map((k) => (
                   <tr key={k}>
                     <td className="t2">{METRIC_LABELS[k] ?? k}</td>
-                    <td className="ta-r mono">{data.metrics_a[k] ?? "—"}</td>
-                    <td className="ta-r mono">{data.metrics_b[k] ?? "—"}</td>
+                    <td className="ta-r mono">{data.metrics_a[k] ?? "-"}</td>
+                    <td className="ta-r mono">{data.metrics_b[k] ?? "-"}</td>
                   </tr>
                 ))}
               </tbody>

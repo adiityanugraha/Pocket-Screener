@@ -1,6 +1,6 @@
 "use client";
 
-// Explainable AI 2.0 (Phase 5) — breakdown pembentukan Composite Score.
+// Explainable AI 2.0 (Phase 5) - breakdown pembentukan Composite Score.
 // Input ticker -> GET /api/explain-score/{ticker}.
 
 import { useState } from "react";

@@ -1,4 +1,4 @@
-"""Market Breadth — konteks pasar menyeluruh (sehat atau hanya segelintir naik).
+"""Market Breadth - konteks pasar menyeluruh (sehat atau hanya segelintir naik).
 
 Sesuai blueprint Phase 2 (Market Breadth Dashboard), metrik:
   - Jumlah saham naik / turun (advancers / decliners)

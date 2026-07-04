@@ -6,7 +6,7 @@ Winrate. Hasil disimpan ke strategy_performance (period="ALL") dan disajikan
 GET /api/performance/{strategy}.
 
 ============================================================================
-METODOLOGI RETURN SERIES — "rebalancing kohort non-overlap" (transparan)
+METODOLOGI RETURN SERIES - "rebalancing kohort non-overlap" (transparan)
 ============================================================================
 Trade log hanya punya return pada horizon diskrit (1/3/7/30 hari). Untuk
 membentuk seri return yang bisa dianualisasi DENGAN biaya yang adil DAN tanpa
@@ -54,14 +54,14 @@ from app.quant.reconstruct import TECHNICAL_KEYS
 
 TRADING_DAYS = 252
 RISK_FREE_ANNUAL = 0.06
-DEFAULT_HOLD = 30  # horizon holding kanonik (hari bursa) — lihat METODOLOGI
+DEFAULT_HOLD = 30  # horizon holding kanonik (hari bursa) - lihat METODOLOGI
 
 # Strategi yang divalidasi historis (alias agar jelas di endpoint).
 VALIDATED_STRATEGIES: tuple[str, ...] = TECHNICAL_KEYS
 
 
 # --------------------------------------------------------------------------- #
-# Metrik MURNI (tanpa DB) — beroperasi atas seri return per-periode / equity.
+# Metrik MURNI (tanpa DB) - beroperasi atas seri return per-periode / equity.
 # --------------------------------------------------------------------------- #
 def to_equity(returns: list[float], start: float = 1.0) -> list[float]:
     """Equity curve dari seri return (perkalian kumulatif)."""
@@ -190,7 +190,7 @@ def compute_metrics(
 
 
 # --------------------------------------------------------------------------- #
-# Lapisan DB — bangun seri return kohort dari replay_history.
+# Lapisan DB - bangun seri return kohort dari replay_history.
 # --------------------------------------------------------------------------- #
 def _trading_calendar(db: Session) -> tuple[list[date], dict[date, int]]:
     """Kalender bursa global (distinct date market_data) + peta date->indeks."""

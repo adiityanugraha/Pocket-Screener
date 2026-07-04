@@ -6,7 +6,7 @@ MENGGABUNGKAN komponen yang sudah ada:
   - Risk Meter (Phase 2, app.core.risk_meter)  → saring sesuai profil risiko.
   - Correlation Matrix (Phase 4, Day 9)        → jaga diversifikasi.
 
-Metode = HEURISTIK (bukan mean-variance/PyPortfolioOpt — dihindari di Windows):
+Metode = HEURISTIK (bukan mean-variance/PyPortfolioOpt - dihindari di Windows):
   1. Skor seluruh universe; saring kandidat sesuai level risiko yang diizinkan.
   2. Seleksi greedy menurut skor: lewati kandidat yang korelasinya dengan saham
      terpilih >= ambang (jaga diversifikasi), sampai jumlah posisi maksimum.

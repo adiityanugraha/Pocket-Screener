@@ -1,4 +1,4 @@
-"""Strategi TURNAROUND (Phase 3 Day 7) — perusahaan mulai pulih.
+"""Strategi TURNAROUND (Phase 3 Day 7) - perusahaan mulai pulih.
 
 Kriteria blueprint (8) dan status datanya di sumber Yahoo gratis:
   a. Net Income (Growth: YTD YoY)        >= 5    EVALUASI (YoY tahunan)
@@ -6,7 +6,7 @@ Kriteria blueprint (8) dan status datanya di sumber Yahoo gratis:
                                                   SKIP* (IFO tak tersedia)
   c. Current Price to Book Value         > 0     EVALUASI
   d. PE Annualised <= 0.7 x Current PE            SKIP (butuh PE annualised
-                                                  dari laporan kuartalan —
+                                                  dari laporan kuartalan -
                                                   hanya ada 1 PE trailing)
   e. Current PE Ratio (Annualised)       > 1     EVALUASI (proxy: PE trailing)
   f. Current PE Ratio (Annualised)       <= 12   EVALUASI (proxy: PE trailing)
@@ -14,7 +14,7 @@ Kriteria blueprint (8) dan status datanya di sumber Yahoo gratis:
   h. Revenue (Growth: YTD YoY)           >= 5    EVALUASI (YoY tahunan)
 
   *) b & g dievaluasi otomatis bila income_from_operations terisi (mis. saat
-     sumber data di-upgrade) — skip-nya dinamis, bukan hardcode.
+     sumber data di-upgrade) - skip-nya dinamis, bukan hardcode.
 
 Kebijakan "proxy + lewati, ditandai": strategi dinilai atas subset terhitung;
 kriteria yang dilewati dicatat di skipped_criteria.
@@ -62,7 +62,7 @@ def _evaluate(view: FundamentalView) -> tuple[dict[str, bool], dict[str, str], l
         ),
         "pbv_positive": f"PBV {view.pbv:.2f} > 0" if view.pbv is not None else "",
         "pe_above_1": f"PE {pe:.2f} > 1 (proxy PE trailing)" if pe is not None else "",
-        "pe_max_12": f"PE {pe:.2f} <= 12 — masih murah (proxy PE trailing)"
+        "pe_max_12": f"PE {pe:.2f} <= 12 - masih murah (proxy PE trailing)"
         if pe is not None else "",
         "revenue_growth_yoy": (
             f"Revenue tumbuh {rev_yoy:.1f}% YoY (>= 5%)" if rev_yoy is not None else ""

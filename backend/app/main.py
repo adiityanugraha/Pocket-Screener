@@ -1,4 +1,4 @@
-"""FastAPI entrypoint — Pocket Screener Phase 2 backend.
+"""FastAPI entrypoint - Pocket Screener Phase 2 backend.
 
 Jalankan (dari folder backend/, venv aktif):
     uvicorn app.main:app --reload --port 8000
@@ -82,7 +82,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — frontend (Next.js) memanggil API ini dari origin yang berbeda.
+# CORS - frontend (Next.js) memanggil API ini dari origin yang berbeda.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
@@ -92,7 +92,7 @@ app.add_middleware(
 )
 
 # --------------------------------------------------------------------------- #
-# Rate limiting sederhana (in-memory, per-IP, fixed window) — tanpa dependensi.
+# Rate limiting sederhana (in-memory, per-IP, fixed window) - tanpa dependensi.
 # Melindungi API publik dari spam: endpoint LLM (Gemini, berbiaya) dibatasi lebih
 # ketat daripada endpoint biasa. Cukup untuk 1 instance Railway; untuk multi-
 # instance pakai store bersama (Redis).

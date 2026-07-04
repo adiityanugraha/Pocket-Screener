@@ -1,4 +1,4 @@
-"""Indikator teknikal — port PERSIS dari frontend/src/lib/indicators.ts.
+"""Indikator teknikal - port PERSIS dari frontend/src/lib/indicators.ts.
 
 Tujuan utama: hasil identik dengan perhitungan client-side Phase 1 sehingga
 feature vector ML (Day 5) & screener konsisten antara browser dan backend.

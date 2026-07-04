@@ -78,7 +78,7 @@ function StrategyCard({ result }: { result: BacktestResult }) {
         <Tile label="Max drawdown" value={formatPercent(result.maxDrawdown)} cls="num-down" />
         <Tile
           label="Periode"
-          value={`${result.periodStart.slice(0, 4)}–${result.periodEnd.slice(0, 4)}`}
+          value={`${result.periodStart.slice(0, 4)}-${result.periodEnd.slice(0, 4)}`}
         />
         <Tile label="Total trades" value={`${result.totalTrades}`} />
       </div>

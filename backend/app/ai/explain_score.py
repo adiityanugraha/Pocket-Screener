@@ -1,4 +1,4 @@
-"""Explainable AI 2.0 — pembentukan Composite Score (Phase 5 Day 6).
+"""Explainable AI 2.0 - pembentukan Composite Score (Phase 5 Day 6).
 
 Menjelaskan BAGAIMANA Composite Score (Phase 2) terbentuk: breakdown per komponen
 (Technical 30%, Momentum 25%, Volume 20%, Volatility 10%, ML 15%) beserta
@@ -6,7 +6,7 @@ KONTRIBUSI tiap komponen ke skor akhir, lalu dinarasikan LLM.
 
 Konsistensi dengan engine Phase 2 (app.core.composite_score):
   - Bila ML tersedia  : overall = Σ skor_i × bobot_i (bobot jumlah 1.0).
-  - Bila ML tak ada   : bobot ML (15%) didistribusi ulang — 4 bobot lain
+  - Bila ML tak ada   : bobot ML (15%) didistribusi ulang - 4 bobot lain
     direnormalisasi atas 0.85 (effective_weight). contribution = skor ×
     effective_weight; Σ contribution == overall pada KEDUA cabang.
 

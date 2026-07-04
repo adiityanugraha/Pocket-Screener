@@ -1,8 +1,8 @@
 "use client";
 
 // Explainable AI + Explain Why Selected (Phase 3).
-// Kiri : /api/explain — confidence + bullish/risk factors.
-// Kanan: /api/why — strategi yang cocok + alasan per kriteria yang lolos.
+// Kiri : /api/explain - confidence + bullish/risk factors.
+// Kanan: /api/why - strategi yang cocok + alasan per kriteria yang lolos.
 
 import { getExplain, getWhy } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
@@ -104,7 +104,7 @@ function WhySide({ symbol }: { symbol: string }) {
                     {strategy.type}
                   </span>
                 </p>
-                <FactorList emptyText="—" factors={strategy.reasons} dir="up" />
+                <FactorList emptyText="-" factors={strategy.reasons} dir="up" />
                 {strategy.skipped.length > 0 && (
                   <p className="t3 small mt" style={{ fontStyle: "italic" }}>
                     {strategy.skipped.length} kriteria dilewati (data tidak tersedia di sumber gratis)
@@ -123,7 +123,7 @@ export function ExplainPanel({ symbol }: { symbol: string }) {
   return (
     <VCard
       title={`Explain · ${symbol}`}
-      sub="Kenapa saham ini terpilih — dari kriteria yang benar-benar lolos"
+      sub="Kenapa saham ini terpilih - dari kriteria yang benar-benar lolos"
       subMono={false}
     >
       <div className="xai-grid">

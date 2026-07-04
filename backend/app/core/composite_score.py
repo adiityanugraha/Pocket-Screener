@@ -1,4 +1,4 @@
-"""Composite Score Engine — gabungkan banyak indikator jadi SATU skor 0-100.
+"""Composite Score Engine - gabungkan banyak indikator jadi SATU skor 0-100.
 
 Sesuai blueprint Phase 2 (Composite Score Engine), bobot komponen:
 

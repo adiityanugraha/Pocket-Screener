@@ -1,4 +1,4 @@
-"""Strategi BPJS (Beli Pagi Jual Sore) — dipindah ke pola registry (Day 1).
+"""Strategi BPJS (Beli Pagi Jual Sore) - dipindah ke pola registry (Day 1).
 
 Logika TIDAK ditulis ulang: kriteria tetap dihitung oleh fungsi murni Phase 2
 (app.core.screener.get_bpjs_criteria) sehingga hasil dijamin identik. File ini

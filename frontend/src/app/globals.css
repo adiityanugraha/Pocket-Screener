@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ============================================================
-   VESTIGO — design tokens (bronze / "quiet trading terminal")
+   VESTIGO - design tokens (bronze / "quiet trading terminal")
    Ported from the Claude Design prototype (Vestigo.html).
-   Single dark theme — there is no light mode.
+   Single dark theme - there is no light mode.
    ============================================================ */
 :root {
   --ground: #111111;
@@ -136,7 +136,7 @@ select {
 }
 
 /* ============================================================
-   App shell — layout (sidebar + topbar + content + footer)
+   App shell - layout (sidebar + topbar + content + footer)
    ============================================================ */
 .app {
   display: flex;
@@ -475,7 +475,7 @@ select {
 }
 
 /* ============================================================
-   Component layer — cards, tiles, numbers, tables, charts.
+   Component layer - cards, tiles, numbers, tables, charts.
    Ported from the Vestigo.html prototype. Shared by feature views.
    ============================================================ */
 
@@ -907,7 +907,7 @@ select {
   color: var(--t1);
   text-wrap: pretty;
 }
-/* Narasi yang menyertai tabel/hasil — sedikit lebih kecil dari narator utama. */
+/* Narasi yang menyertai tabel/hasil - sedikit lebih kecil dari narator utama. */
 .narrator-sm {
   font-size: 14px;
 }
@@ -1103,7 +1103,7 @@ select {
 }
 
 /* ============================================================
-   Component layer (Pro) — tables, matrix, gauge, forecast, etc.
+   Component layer (Pro) - tables, matrix, gauge, forecast, etc.
    Ported from the Vestigo.html prototype.
    ============================================================ */
 
@@ -1454,7 +1454,7 @@ select {
 }
 
 /* ============================================================
-   Mobile pass — tighten paddings & scale type on small screens.
+   Mobile pass - tighten paddings & scale type on small screens.
    ============================================================ */
 @media (max-width: 640px) {
   body {

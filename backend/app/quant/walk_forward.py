@@ -6,7 +6,7 @@ tiap tahun berikutnya menjadi fold TEST. Hanya periode TEST yang dijahit menjadi
 kurva out-of-sample.
 
 CATATAN PENTING: strategi Phase 3 ini RULE-BASED tanpa parameter yang di-fit,
-jadi window "train" tidak menyetel apa pun — perannya murni memastikan tiap fold
+jadi window "train" tidak menyetel apa pun - perannya murni memastikan tiap fold
 diuji secara KRONOLOGIS ke depan (data train selalu mendahului test). Nilai
 walk-forward di sini = melihat apakah edge KONSISTEN dari tahun ke tahun, bukan
 optimasi parameter (blueprint mengakui hal ini).

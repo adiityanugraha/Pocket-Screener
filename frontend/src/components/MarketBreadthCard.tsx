@@ -31,7 +31,7 @@ function MoverList({ title, movers }: { title: string; movers: Mover[] }) {
     <div>
       <p className="section-label">{title}</p>
       <ul className="report-list">
-        {movers.length === 0 && <li className="t3">—</li>}
+        {movers.length === 0 && <li className="t3">-</li>}
         {movers.map((m) => {
           const dir = m.change_pct > 0 ? "num-up" : m.change_pct < 0 ? "num-down" : "";
           return (
@@ -74,7 +74,7 @@ export function MarketBreadthCard() {
               <p className="tile-label">Bullish ratio</p>
               <p className="big-num mono">
                 {data.bullish_ratio === null
-                  ? "—"
+                  ? "-"
                   : `${fmtScore(data.bullish_ratio * 100, 0)}%`}
               </p>
             </div>

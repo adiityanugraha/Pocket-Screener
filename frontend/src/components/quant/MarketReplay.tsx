@@ -41,7 +41,7 @@ function StrategyBucket({ label, items }: { label: string; items: ReplayCandidat
                 <td>
                   <span className="tk-pill">{c.ticker}</span>
                 </td>
-                <td className="ta-r mono t2">{c.price != null ? fmtInt(c.price) : "—"}</td>
+                <td className="ta-r mono t2">{c.price != null ? fmtInt(c.price) : "-"}</td>
                 <td className="ta-r">
                   <Ret value={c.ret["1d"]} />
                 </td>
@@ -91,7 +91,7 @@ export function MarketReplay() {
           {data.total_candidates === 0 ? (
             <p className="empty-state">
               Tidak ada kandidat lolos pada tanggal ini. Coba tanggal lain dalam rentang{" "}
-              {data.data_range.earliest} – {data.data_range.latest}.
+              {data.data_range.earliest} - {data.data_range.latest}.
             </p>
           ) : (
             <div className="grid-2">

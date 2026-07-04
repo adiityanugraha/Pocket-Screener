@@ -1,7 +1,7 @@
 "use client";
 
 // Error boundary level-route (Next App Router). Menangkap error render yang tak
-// tertangani agar halaman tidak blank — menampilkan kartu Vestigo + tombol coba lagi.
+// tertangani agar halaman tidak blank - menampilkan kartu Vestigo + tombol coba lagi.
 
 import { useEffect } from "react";
 

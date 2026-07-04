@@ -4,7 +4,7 @@ Berbeda dari Risk Meter Phase 2 (per-SAHAM), ini mengukur profil risiko sebuah
 STRATEGI dari seri return historisnya (kohort 30 hari, sama dgn Day 4-6):
 
   - volatility   : volatilitas TER-ANUALISASI dari seri return strategi.
-  - avg_atr_pct  : rata-rata ATR% (ATR/price) saham yang DIPILIH strategi —
+  - avg_atr_pct  : rata-rata ATR% (ATR/price) saham yang DIPILIH strategi -
                    seberapa bergejolak kandidatnya (dari market_data).
   - beta         : kepekaan return strategi terhadap IHSG (cov/var pasar),
                    atas blok yang sama-sama aktif.
@@ -43,7 +43,7 @@ def longest_losing_streak(returns: list[float]) -> int:
             best = max(best, current)
         elif r > 0:
             current = 0
-        # r == 0 (kas) tidak menambah, tetapi juga tidak mereset — abaikan
+        # r == 0 (kas) tidak menambah, tetapi juga tidak mereset - abaikan
     return best
 
 

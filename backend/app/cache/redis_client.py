@@ -1,4 +1,4 @@
-"""Cache layer — wrapper Redis (Upstash, serverless).
+"""Cache layer - wrapper Redis (Upstash, serverless).
 
 Dipakai untuk mempercepat data yang sering diakses (harga, indikator, ranking,
 support/resistance). Prinsip desain:
@@ -10,7 +10,7 @@ support/resistance). Prinsip desain:
   - **Namespacing**: semua key diberi prefix `pocket-screener:` agar tidak bentrok.
   - **Serialisasi JSON**: nilai disimpan sebagai string JSON (decode_responses=True).
 
-Koneksi Upstash memakai skema `rediss://` (TLS) — didukung langsung redis-py.
+Koneksi Upstash memakai skema `rediss://` (TLS) - didukung langsung redis-py.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ KEY_PREFIX = "pocket-screener:"
 
 # Strategi TTL (detik). Data market dianggap "segar" selama jam bursa berjalan;
 # ranking/laporan lebih jarang berubah sehingga TTL lebih panjang.
-TTL_PRICE = 15 * 60        # harga / OHLCV terbaru — selaras cache frontend (15 menit)
+TTL_PRICE = 15 * 60        # harga / OHLCV terbaru - selaras cache frontend (15 menit)
 TTL_INDICATORS = 15 * 60   # indikator teknikal
 TTL_RANKING = 60 * 60      # composite score / ranking (Day 7)
 TTL_REPORT = 60 * 60       # AI stock report (Day 8)

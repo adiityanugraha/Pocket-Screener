@@ -66,7 +66,7 @@ export function CompositeScoreCard({
                     <td className="ta-r mono">{fmtScore(item.breakdown.technical, 0)}</td>
                     <td className="ta-r mono">{fmtScore(item.breakdown.momentum, 0)}</td>
                     <td className="ta-r mono">
-                      {item.breakdown.ml === null ? "—" : fmtScore(item.breakdown.ml, 0)}
+                      {item.breakdown.ml === null ? "-" : fmtScore(item.breakdown.ml, 0)}
                     </td>
                   </tr>
                 );

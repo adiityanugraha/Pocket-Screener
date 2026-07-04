@@ -45,8 +45,8 @@ export function SupportResistanceCard({ symbol }: { symbol: string }) {
                 <p className="tile-label">Breakout Zone</p>
                 <p className="tile-val mono">
                   {data.breakout_zone
-                    ? `${fmtInt(data.breakout_zone.lower)}–${fmtInt(data.breakout_zone.upper)}`
-                    : "—"}
+                    ? `${fmtInt(data.breakout_zone.lower)}-${fmtInt(data.breakout_zone.upper)}`
+                    : "-"}
                 </p>
               </div>
             </div>

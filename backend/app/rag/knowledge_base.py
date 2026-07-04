@@ -1,8 +1,8 @@
-"""Knowledge base RAG — dokumen KONSEP statis (Phase 5 Day 3).
+"""Knowledge base RAG - dokumen KONSEP statis (Phase 5 Day 3).
 
 Sumber penjelasan domain agar jawaban LLM tidak generik: definisi indikator,
 arti 9 strategi, makna metrik quant, dan konsep analitik. Hanya PENJELASAN yang
-di-embed di sini; ANGKA aktual TIDAK disimpan — diambil live via tool call
+di-embed di sini; ANGKA aktual TIDAK disimpan - diambil live via tool call
 (Day 4) agar selalu mutakhir & akurat (anti-halusinasi).
 
 Jalankan untuk seed/index ke vector store lokal (butuh GEMINI_API_KEY):
@@ -41,7 +41,7 @@ DOCUMENTS: list[dict[str, str]] = [
     {"id": "strat_breakout", "source": "strategy", "title": "Strategi Breakout",
      "content": "Mencari saham menembus ke atas dengan konfirmasi volume: harga naik, volume di atas Volume MA 20, Volume MA 20 likuid (>300 juta), harga > 100. Ide: awal pergerakan tren baru setelah konsolidasi."},
     {"id": "strat_trend", "source": "strategy", "title": "Strategi Trend Following",
-     "content": "Mengikuti tren mapan: harga > MA20 > MA50 > MA100 > MA200 dengan likuiditas memadai. Ide: 'tren adalah teman' — ikut arah selama susunan MA tetap rapi."},
+     "content": "Mengikuti tren mapan: harga > MA20 > MA50 > MA100 > MA200 dengan likuiditas memadai. Ide: 'tren adalah teman' - ikut arah selama susunan MA tetap rapi."},
     {"id": "strat_reversal", "source": "strategy", "title": "Strategi Potential Reversal",
      "content": "Mencari saham keluar dari fase koreksi: harga mulai naik di atas MA10 sementara MA20 masih di atasnya, disertai volume di atas Volume MA 20. Ide: menangkap awal pembalikan arah, berisiko lebih tinggi."},
     {"id": "strat_high_growth", "source": "strategy", "title": "Strategi High Growth (fundamental)",
@@ -87,7 +87,7 @@ DOCUMENTS: list[dict[str, str]] = [
     {"id": "concept_strength", "source": "concept", "title": "Screener Strength Score",
      "content": "Skor kekuatan menyeluruh 0-100 yang melihat LINTAS strategi: berapa banyak strategi yang dilewati sebuah saham dan bobotnya. Berbeda dari Composite Score yang fokus indikator."},
     {"id": "concept_monte_carlo", "source": "concept", "title": "Monte Carlo Simulation",
-     "content": "Resample (bootstrap) return historis ribuan kali untuk memetakan sebaran kemungkinan hasil setahun ke depan: probability of profit, skenario terburuk (P5), median, terbaik (P95). Bukan jaminan — berbasis asumsi pola historis berulang."},
+     "content": "Resample (bootstrap) return historis ribuan kali untuk memetakan sebaran kemungkinan hasil setahun ke depan: probability of profit, skenario terburuk (P5), median, terbaik (P95). Bukan jaminan - berbasis asumsi pola historis berulang."},
     {"id": "concept_walkforward", "source": "concept", "title": "Walk-Forward Backtesting",
      "content": "Menguji strategi pada periode yang tidak dipakai saat penyetelan (out-of-sample) dengan jendela bergeser. Untuk strategi rule-based, berguna menguji KONSISTENSI performa antar tahun (deteksi overfitting)."},
     {"id": "concept_correlation", "source": "concept", "title": "Correlation Matrix",
@@ -102,7 +102,7 @@ def seed(store: vector_store.LocalVectorStore | None = None) -> int:
     if not embeddings.is_available():
         from app.ai.llm_client import LLMError
 
-        raise LLMError("Lapisan AI nonaktif (GEMINI_API_KEY belum diisi) — tak bisa seed KB.")
+        raise LLMError("Lapisan AI nonaktif (GEMINI_API_KEY belum diisi) - tak bisa seed KB.")
     store = store or vector_store.get_store()
     # Embed gabungan judul + isi agar query cocok ke keduanya.
     contents = [f"{d['title']}. {d['content']}" for d in DOCUMENTS]

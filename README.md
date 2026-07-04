@@ -4,7 +4,7 @@
 **IDX** (Bursa Efek Indonesia) dengan **multi-strategi** (teknikal & fundamental),
 prediksi _machine learning_, penjelasan otomatis (_Explainable AI_), **validasi
 kuantitatif** (backtest, benchmark, Monte Carlo, portfolio builder), serta **lapisan
-AI Financial Analyst** (analisis, chat, dan screener bahasa alami berbasis LLM —
+AI Financial Analyst** (analisis, chat, dan screener bahasa alami berbasis LLM -
 _grounded_ ke data sistem). UI bertema **"quiet trading terminal"** gelap dengan
 sistem **mode Lite / Pro**. Proyek ini adalah **monorepo** dua bagian: frontend
 Next.js dan backend FastAPI.
@@ -14,39 +14,39 @@ Next.js dan backend FastAPI.
 **🔗 Live demo:** [vestigo-steel.vercel.app](https://vestigo-steel.vercel.app) · **API docs:** [/docs](https://vestigo-production.up.railway.app/docs)
 
 > Di-host pada tier gratis (Vercel + Railway). Pemuatan pertama endpoint berat
-> (Screener/Ranking) bisa ~15–20 detik karena _cold start_ inferensi ONNX, lalu
+> (Screener/Ranking) bisa ~15-20 detik karena _cold start_ inferensi ONNX, lalu
 > hasilnya di-cache (Redis).
 
 ---
 
 ## Gambaran Besar
 
-Vestigo dibangun dalam lima fase (lalu di-_rebrand_ & _redesign_ — lihat
+Vestigo dibangun dalam lima fase (lalu di-_rebrand_ & _redesign_ - lihat
 [Tampilan & Mode Lite/Pro](#tampilan--vestigo--mode-litepro)):
 
-- **Phase 1 — No-Backend.** Semua perhitungan (fetch data Yahoo, indikator teknikal,
+- **Phase 1 - No-Backend.** Semua perhitungan (fetch data Yahoo, indikator teknikal,
   inferensi ML via ONNX Runtime Web) berjalan **sepenuhnya di browser**. Hasil
   backtesting di-_pre-compute_ offline.
-- **Phase 2 — Backend.** Seluruh komputasi berat dipindah **server-side** ke
+- **Phase 2 - Backend.** Seluruh komputasi berat dipindah **server-side** ke
   FastAPI: data pipeline, indikator, inferensi ONNX, screener, composite score,
   AI report, risk meter, support/resistance, market breadth, screener history,
   dan scheduler harian. Frontend kini memanggil **REST API** dan jadi ringan.
-- **Phase 3 — Intelligent Multi-Strategy Engine.** Fokus pada **logika** &
+- **Phase 3 - Intelligent Multi-Strategy Engine.** Fokus pada **logika** &
   **transparansi**: **9 strategi** (5 teknikal + 4 fundamental) via _Strategy
   Registry_ yang pluggable, data **fundamental** (Yahoo), **Probability Forecast**
   multi-horizon (1D/5D/20D), **Strategy Matrix**, **Strength Score** lintas-strategi,
   serta **Explainable AI** + **Explain Why Selected**.
-- **Phase 4 — Quant Analytics & Validation.** Fokus **membuktikan** kualitas
+- **Phase 4 - Quant Analytics & Validation.** Fokus **membuktikan** kualitas
   strategi (bukan menambah AI baru): rekonstruksi histori screening **point-in-time**
   (10 tahun, anti _look-ahead_) → **Market Replay**, **Walk-Forward Backtesting**,
   metrik lanjutan (**CAGR · Sharpe · Sortino · Calmar · Profit Factor · Max
   Drawdown**), **Strategy Benchmark** vs IHSG, **Equity Curve**, **Monte Carlo**,
   **Risk Exposure** per strategi, **Correlation Matrix**, dan **Portfolio Builder**.
-  Hanya **5 strategi teknikal** yang divalidasi historis (fundamental dikecualikan —
+  Hanya **5 strategi teknikal** yang divalidasi historis (fundamental dikecualikan -
   tak ada data _point-in-time_).
-- **Phase 5 — AI Financial Analyst.** Lapisan **LLM bahasa alami** di atas seluruh
-  data Phase 1–4. Prinsip inti **grounding**: LLM hanya **menarasikan** angka dari
-  endpoint/DB sistem (anti-halusinasi — dilarang mengarang angka). Mencakup **AI
+- **Phase 5 - AI Financial Analyst.** Lapisan **LLM bahasa alami** di atas seluruh
+  data Phase 1-4. Prinsip inti **grounding**: LLM hanya **menarasikan** angka dari
+  endpoint/DB sistem (anti-halusinasi - dilarang mengarang angka). Mencakup **AI
   Analyst Engine**, **Explainable AI 2.0**, **Chat With Stock** (RAG + tool call +
   streaming), **Natural Language Screener**, **AI Strategy Comparator**, **Portfolio
   AI Advisor**, **Market Narrator**, dan **AI Daily Report** (ekspor PDF). Provider
@@ -87,9 +87,9 @@ Vestigo dibangun dalam lima fase (lalu di-_rebrand_ & _redesign_ — lihat
 
 ---
 
-## Tampilan — Vestigo & Mode Lite/Pro
+## Tampilan - Vestigo & Mode Lite/Pro
 
-Desain mengikuti _handoff_ Claude Design: tema gelap **"quiet trading terminal"** —
+Desain mengikuti _handoff_ Claude Design: tema gelap **"quiet trading terminal"** -
 tenang, padat-informasi, warna **hanya untuk makna** (hijau naik · merah turun ·
 risiko). Tipografi **Inter** (UI) + **JetBrains Mono** dengan _tabular figures_ untuk
 **semua angka** (harga, persen, skor, volume) sebagai _signature_ aplikasi; aksen
@@ -97,10 +97,10 @@ risiko). Tipografi **Inter** (UI) + **JetBrains Mono** dengan _tabular figures_ 
 
 Satu **toggle Lite / Pro** mengatur kedalaman setiap halaman:
 
-- **Lite** — menjawab _"apa & seberapa yakin"_: 3 menu (**Dashboard · Screener · AI**),
+- **Lite** - menjawab _"apa & seberapa yakin"_: 3 menu (**Dashboard · Screener · AI**),
   permukaan ringkas yang sudah dikurasi & langsung bisa ditindaklanjuti. Default untuk
   pengguna baru.
-- **Pro** — menjawab _"kenapa, seberapa terbukti, bagaimana menyusunnya"_: 6 menu
+- **Pro** - menjawab _"kenapa, seberapa terbukti, bagaimana menyusunnya"_: 6 menu
   (**+ Strategies · Quant · Backtest**) dan seluruh kedalaman analitik & angka mentah.
 
 Berpindah mode me-_reflow_ navigasi & konten (bukan sekadar menyembunyikan elemen),
@@ -131,7 +131,7 @@ pocket-screener/
 | Fitur | Endpoint | Keterangan |
 | ----- | -------- | ---------- |
 | **Screener BSJP & BPJS** | `GET /api/screener` | Dua strategi intraday, kriteria + skor, level Entry/SL/TP, hasil disimpan ke `screening_history`. |
-| **Composite Score / Ranking** | `GET /api/ranking` | Skor gabungan 0–100 (Technical 30% · Momentum 25% · Volume 20% · Volatility 10% · ML 15%). |
+| **Composite Score / Ranking** | `GET /api/ranking` | Skor gabungan 0-100 (Technical 30% · Momentum 25% · Volume 20% · Volatility 10% · ML 15%). |
 | **AI Stock Report** | `GET /api/stock-report/{ticker}` | Sentimen Bullish/Bearish, faktor pendukung & risiko, AI Confidence. |
 | **Risk Meter** | `GET /api/risk/{ticker}` | Volatilitas, ATR%, Max Drawdown, Beta → Low/Medium/High. |
 | **Support & Resistance** | `GET /api/support-resistance/{ticker}` | Swing High/Low, Pivot Point, ATR Band, Breakout Zone. |
@@ -139,7 +139,7 @@ pocket-screener/
 | **Screener History** | `GET /api/history` | Riwayat lolos screener + tracking performa N hari + winrate per strategi. |
 | **Market Data** | `GET /api/market-data/{ticker}` | OHLCV + indikator pre-computed (untuk chart). |
 
-### Phase 3 — Multi-Strategy & Explainable
+### Phase 3 - Multi-Strategy & Explainable
 
 | Fitur | Endpoint | Keterangan |
 | ----- | -------- | ---------- |
@@ -147,7 +147,7 @@ pocket-screener/
 | **Screener 1 strategi** | `GET /api/screener?strategy={name}` | Kandidat 1 strategi + `matched_criteria` (alasan konkret). |
 | **Screener semua strategi** | `GET /api/screener/all` | Jalankan 9 strategi sekaligus → tabel `strategy_results`. |
 | **Strategy Matrix** | `GET /api/strategy-matrix` | Matriks saham × strategi (lolos / gagal / tak dinilai). |
-| **Strength Score** | `GET /api/strength/{ticker}` | Skor kekuatan lintas-strategi 0–100 (bobot configurable). |
+| **Strength Score** | `GET /api/strength/{ticker}` | Skor kekuatan lintas-strategi 0-100 (bobot configurable). |
 | **Probability Forecast** | `GET /api/forecast/{ticker}` | P(return > 0) untuk 1D/5D/20D + confidence + disclaimer. |
 | **Explainable AI** | `GET /api/explain/{ticker}` | Confidence + bullish factors + risk factors. |
 | **Explain Why Selected** | `GET /api/why/{ticker}` | Strategi yang cocok + alasan per-kriteria yang benar-benar lolos. |
@@ -158,7 +158,7 @@ pocket-screener/
 - **Teknikal:** BSJP · BPJS · Breakout · Trend Following · Potential Reversal
 - **Fundamental:** High Growth · Turnaround · Timeless · Cash Rich
 
-### Phase 4 — Quant Analytics & Validation
+### Phase 4 - Quant Analytics & Validation
 
 Memvalidasi **5 strategi teknikal** (BSJP · BPJS · Breakout · Trend Following ·
 Potential Reversal) atas **histori 10 tahun** yang direkonstruksi _point-in-time_
@@ -168,7 +168,7 @@ Potential Reversal) atas **histori 10 tahun** yang direkonstruksi _point-in-time
 | ----- | -------- | ---------- |
 | **Market Replay** | `GET /api/replay/{date}` | Kandidat tiap strategi pada tanggal historis + return forward (+1/+3/+7/+30 hari). |
 | **Performance Metrics** | `GET /api/performance/{strategy}` | CAGR · Sharpe · Sortino · Calmar · Profit Factor · Recovery Factor · Max Drawdown · Winrate. |
-| **Strategy Benchmark** | `GET /api/benchmark` | Semua strategi berdampingan vs **IHSG** (buy & hold) — apakah mengalahkan pasar? |
+| **Strategy Benchmark** | `GET /api/benchmark` | Semua strategi berdampingan vs **IHSG** (buy & hold) - apakah mengalahkan pasar? |
 | **Equity Curve** | `GET /api/equity-curve/{strategy}` | Pertumbuhan modal + high-water mark + drawdown per tanggal. |
 | **Risk Exposure** | `GET /api/risk-profile/{strategy}` | Volatilitas · Beta vs IHSG · Max DD · Losing Streak → Low/Medium/High (per **strategi**). |
 | **Correlation Matrix** | `GET /api/correlation?universe=lq45` | Korelasi Pearson return harian (universe terbatas) untuk diversifikasi. |
@@ -177,7 +177,7 @@ Potential Reversal) atas **histori 10 tahun** yang direkonstruksi _point-in-time
 | **Portfolio Builder** | `POST /api/portfolio-builder` | Alokasi otomatis per profil risiko (Composite Score + Risk Meter + Correlation). |
 
 > **Metodologi:** return series memakai **rebalancing kohort non-overlap** (blok
-> 30 hari bursa, basket equal-weight) — adil terhadap biaya & tanpa _volatility
+> 30 hari bursa, basket equal-weight) - adil terhadap biaya & tanpa _volatility
 > drag_ sintetis. IHSG dihitung _buy & hold_ tanpa biaya. Semua hasil disertai
 > _disclaimer_ (alat bantu analisis/edukasi, bukan rekomendasi).
 
@@ -191,11 +191,11 @@ fundamental · 07:00 refresh trade log · 08:00 walk-forward** (mingguan).
 
 ---
 
-### Phase 5 — AI Financial Analyst
+### Phase 5 - AI Financial Analyst
 
 Lapisan LLM (**Google Gemini**, free tier) yang **menarasikan** data sistem.
 **Grounding** dijaga ketat: konsep diambil dari **RAG** (knowledge base lokal),
-**angka** diambil _live_ via _tool call_ ke endpoint Phase 1–4 — LLM tak pernah
+**angka** diambil _live_ via _tool call_ ke endpoint Phase 1-4 - LLM tak pernah
 mengarang angka. Setiap output menyertakan _disclaimer_.
 
 | Fitur | Endpoint | Keterangan |
@@ -209,8 +209,8 @@ mengarang angka. Setiap output menyertakan _disclaimer_.
 | **Market Narrator** | `GET /api/market-summary` | Narasi kondisi pasar (breadth + rotasi sektor + benchmark). |
 | **AI Daily Report** | `GET /api/daily-report?format=json\|markdown\|pdf` | Top Opportunities, sektor, high-confidence, risk warning + ekspor **PDF**. |
 
-> Prasyarat **Sector Rotation** (`GET /api/sector-rotation`) — kekuatan relatif &
-> rotasi sektor (1M/3M/6M vs IHSG) — diimplementasikan di Phase 5 (Day 2) karena
+> Prasyarat **Sector Rotation** (`GET /api/sector-rotation`) - kekuatan relatif &
+> rotasi sektor (1M/3M/6M vs IHSG) - diimplementasikan di Phase 5 (Day 2) karena
 > dipakai AI Analyst & Market Narrator. Generasi batch (analisis/narator/report)
 > dijadwalkan **malam** lalu di-cache; hanya Chat & NL Screener yang _real-time_.
 
@@ -219,25 +219,25 @@ mengarang angka. Setiap output menyertakan _disclaimer_.
 ## Halaman Frontend
 
 Navigasi & kedalaman tiap halaman mengikuti **mode Lite/Pro** (lihat
-[Tampilan & Mode Lite/Pro](#tampilan--vestigo--mode-litepro)) — **Strategies**,
+[Tampilan & Mode Lite/Pro](#tampilan--vestigo--mode-litepro)) - **Strategies**,
 **Quant**, dan **Backtest** hanya muncul di mode **Pro**.
 
-- **Dashboard (`/`)** — konteks pasar **IHSG** (Indeks Harga Saham Gabungan):
+- **Dashboard (`/`)** - konteks pasar **IHSG** (Indeks Harga Saham Gabungan):
   candlestick + AI Report + Risk Meter + Support/Resistance. Simbol terkunci ke IHSG.
-- **Screener (`/screener`)** — Market Breadth, tabel screener BSJP/BPJS, chart &
+- **Screener (`/screener`)** - Market Breadth, tabel screener BSJP/BPJS, chart &
   analitik saham terpilih (AI/Risk/S&R), **Probability Forecast**, **Strength
   Score**, **Explain Panel** (Explainable AI + Why Selected), Composite Score, dan
   Screener History.
-- **Strategies (`/strategies`)** — pemilih 9 strategi, hasil per-strategi dengan
+- **Strategies (`/strategies`)** - pemilih 9 strategi, hasil per-strategi dengan
   `matched_criteria`, dan **Strategy Comparison Matrix**.
-- **Quant (`/quant`)** — dashboard validasi kuantitatif Phase 4: **Strategy
+- **Quant (`/quant`)** - dashboard validasi kuantitatif Phase 4: **Strategy
   Benchmark** (vs IHSG), **Equity Curve** + **Monte Carlo**, **Risk Exposure**,
   **Correlation Heatmap**, **Market Replay**, dan **Portfolio Builder**.
-- **AI (`/ai`)** — dashboard AI Financial Analyst Phase 5: **Market Narrator**,
+- **AI (`/ai`)** - dashboard AI Financial Analyst Phase 5: **Market Narrator**,
   **AI Daily Report** (+ unduh PDF), **Chat With Stock** (streaming), **AI Analyst**
   & **Explainable AI 2.0** per saham, **Strategy Comparator**, dan **Portfolio AI
   Advisor**.
-- **Backtest (`/backtest`)** — winrate, cumulative return, drawdown, metrik model.
+- **Backtest (`/backtest`)** - winrate, cumulative return, drawdown, metrik model.
 
 ---
 
@@ -260,7 +260,7 @@ python -m app.data.fundamentals_derived      # hitung metrik fundamental harian
 uvicorn app.main:app --reload --port 8000
 ```
 
-> **Phase 4 — rekonstruksi histori (sekali, offline).** Setelah ingest 10 tahun,
+> **Phase 4 - rekonstruksi histori (sekali, offline).** Setelah ingest 10 tahun,
 > bangun trade log untuk fitur quant:
 >
 > ```powershell
@@ -275,7 +275,7 @@ uvicorn app.main:app --reload --port 8000
 > melatih ulang: `pip install scikit-learn skl2onnx` lalu
 > `python -m app.ml.train_forecast` (offline, butuh market_data ≥ 2 tahun).
 
-> **Phase 5 — lapisan AI (opsional).** Set `GEMINI_API_KEY` di `.env` (gratis dari
+> **Phase 5 - lapisan AI (opsional).** Set `GEMINI_API_KEY` di `.env` (gratis dari
 > [Google AI Studio](https://aistudio.google.com/apikey)) lalu seed knowledge base
 > RAG: `python -m app.rag.knowledge_base`. Tanpa key, fitur AI nonaktif aman-gagal
 > (endpoint lain tetap jalan). Vector store RAG memakai **file lokal** (numpy), bukan
@@ -315,7 +315,7 @@ Vestigo berjalan di **Vercel** (frontend) + **Railway** (backend + Postgres) +
   | `ENVIRONMENT` | `production` |
   | `SCHEDULER_ENABLED` | `false` saat isi data awal, lalu `true` (job malam mengisi & cache) |
 
-**2. Isi data ke Postgres Railway** (sekali, dari lokal — arahkan `DATABASE_URL` ke
+**2. Isi data ke Postgres Railway** (sekali, dari lokal - arahkan `DATABASE_URL` ke
 `DATABASE_PUBLIC_URL` Railway, host `…proxy.rlwy.net`):
 
 ```powershell
@@ -333,8 +333,8 @@ python -m app.rag.knowledge_base              # seed RAG (vector store lokal)
 - Env **`NEXT_PUBLIC_API_BASE_URL`** = URL backend Railway.
 - Deploy → catat URL, lalu set `CORS_ORIGINS` backend ke URL tsb. → redeploy backend.
 
-> **Catatan:** (a) `NEXT_PUBLIC_API_BASE_URL` di-_bake_ saat build — pastikan terisi
-> sebelum deploy. (b) Hindari `.npmrc` berisi `script-shell=powershell` di repo —
+> **Catatan:** (a) `NEXT_PUBLIC_API_BASE_URL` di-_bake_ saat build - pastikan terisi
+> sebelum deploy. (b) Hindari `.npmrc` berisi `script-shell=powershell` di repo -
 > menggagalkan `npm install` di Linux Vercel. (c) Tier gratis: endpoint berat
 > (Screener/Ranking) lambat di pemuatan pertama (cold start ONNX) lalu di-cache.
 
@@ -346,12 +346,12 @@ python -m app.rag.knowledge_base              # seed RAG (vector store lokal)
 | ---- | --------- |
 | Frontend | Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · Lightweight-charts · Recharts · design tokens "Vestigo" (mode Lite/Pro) · font Inter + JetBrains Mono |
 | Backend | FastAPI · SQLAlchemy 2.0 · APScheduler · httpx |
-| Database | PostgreSQL — Railway (produksi) · lokal/Neon (dev) |
+| Database | PostgreSQL - Railway (produksi) · lokal/Neon (dev) |
 | Cache | Redis (Upstash) |
 | ML | scikit-learn + skl2onnx (training offline) → ONNX → onnxruntime (inferensi server-side) |
 | Forecast | 3 model RandomForest terkalibrasi (1D/5D/20D), binary classification P(return > 0) |
 | Explainability | Rule-based (`matched_criteria`) + interpretasi fitur teknikal per-saham |
-| Quant (P4) | numpy · pandas · scipy — backtest, performance metrics, Monte Carlo, korelasi, portfolio |
+| Quant (P4) | numpy · pandas · scipy - backtest, performance metrics, Monte Carlo, korelasi, portfolio |
 | AI (P5) | Google Gemini (`gemini-2.5-flash-lite`) via `google-genai` · embedding `gemini-embedding-001` · RAG vector store lokal (numpy) · fpdf2 (ekspor PDF) |
 | Deploy | Vercel (frontend) · Railway (backend) |
 
@@ -377,7 +377,7 @@ Advisor, Market Narrator, AI Daily Report, AI Analyst Dashboard), **integrasi
 frontend ke REST API**, serta **redesign & rebranding Vestigo** (design system bronze
 "quiet trading terminal", mode Lite/Pro, dari _handoff_ Claude Design), dikerjakan
 dengan bantuan **Claude
-(Anthropic)** sebagai AI pair-programmer melalui Claude Code — sehingga "Claude"
+(Anthropic)** sebagai AI pair-programmer melalui Claude Code - sehingga "Claude"
 tercatat sebagai _contributor_ pada riwayat Git repositori ini.
 
 ---
@@ -385,5 +385,5 @@ tercatat sebagai _contributor_ pada riwayat Git repositori ini.
 ## Lisensi
 
 © 2026 Anak Agung Aryadipa Aditya Nugraha. Dirilis di bawah
-**[MIT License](LICENSE)** — bebas dipakai/dimodifikasi selama mencantumkan
+**[MIT License](LICENSE)** - bebas dipakai/dimodifikasi selama mencantumkan
 notice hak cipta & lisensi ini.

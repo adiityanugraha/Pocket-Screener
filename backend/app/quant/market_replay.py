@@ -2,14 +2,14 @@
 
 Memutar ulang hasil screening pada tanggal historis pilihan: untuk tiap strategi
 teknikal tervalidasi, tampilkan kandidat yang LOLOS pada tanggal itu beserta
-performa forward (+1/+3/+7/+30 hari) — bukti nyata kualitas screener.
+performa forward (+1/+3/+7/+30 hari) - bukti nyata kualitas screener.
 
 Sumber: tabel replay_history (sudah dimaterialisasi Day 3: price tanggal
 screening + return forward net). Engine ini hanya membaca & merakit (cepat,
 tanpa hitung ulang). Nilai transaksi (turnover) di-join dari market_data sebagai
 proxy likuiditas untuk mengurutkan "Top" kandidat.
 
-Strategi fundamental DIKECUALIKAN (tidak divalidasi historis) — lihat
+Strategi fundamental DIKECUALIKAN (tidak divalidasi historis) - lihat
 app/quant/__init__.py.
 """
 

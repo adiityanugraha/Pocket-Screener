@@ -5,7 +5,7 @@ GET /api/explain-score/{ticker}
   Volatility/ML) + kontribusi tiap komponen ke skor akhir, dinarasikan LLM.
   Angka dari sistem (engine Composite Score Phase 2); LLM hanya menarasikan.
 
-Cache-only (Redis); tidak ada tabel khusus — explain adalah turunan Composite
+Cache-only (Redis); tidak ada tabel khusus - explain adalah turunan Composite
 Score. Query: refresh (abaikan cache).
 """
 
@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 
 from app.ai import explain_score
 from app.cache import redis_client
-from app.db.session import get_db  # noqa: F401 — konsistensi DI (analyze pakai session via tools)
+from app.db.session import get_db  # noqa: F401 - konsistensi DI (analyze pakai session via tools)
 
 router = APIRouter(prefix="/api/explain-score", tags=["explain-score"])
 
@@ -53,7 +53,7 @@ class ExplainScoreResponse(BaseModel):
 def get_explain_score(
     ticker: str,
     refresh: bool = Query(False),
-    db: Session = Depends(get_db),  # noqa: ARG001 — tools membuka session sendiri
+    db: Session = Depends(get_db),  # noqa: ARG001 - tools membuka session sendiri
 ) -> dict:
     ticker = ticker.strip().upper()
     cache_key = CACHE_KEY.format(ticker=ticker)

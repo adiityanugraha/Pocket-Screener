@@ -1,11 +1,11 @@
 """Helper bersama untuk strategi TEKNIKAL (Phase 3 Day 2+).
 
-Moving average dihitung ON-THE-FLY dari bar (bukan kolom DB) — konsisten dengan
+Moving average dihitung ON-THE-FLY dari bar (bukan kolom DB) - konsisten dengan
 cara Phase 2 menghitung price_ma5 di build_screener_input, dan menghindari migrasi
 skema market_data (create_all tidak meng-ALTER tabel yang sudah ada).
 
 Konvensi MA: simple_moving_average mengambil `period` nilai TERAKHIR termasuk bar
-berjalan (inklusif) — sama dengan price_ma5 Phase 2 sehingga kriteria "Price vs
+berjalan (inklusif) - sama dengan price_ma5 Phase 2 sehingga kriteria "Price vs
 MA" seragam di seluruh strategi.
 """
 
@@ -74,7 +74,7 @@ def value_ma20(bars: list[OhlcvBar]) -> float | None:
 
 
 # --------------------------------------------------------------------------- #
-# Komparator None-safe — kriteria fundamental sering bernilai None (data Yahoo
+# Komparator None-safe - kriteria fundamental sering bernilai None (data Yahoo
 # tak lengkap). None selalu mengevaluasi ke False (tak bisa dikonfirmasi lolos).
 # --------------------------------------------------------------------------- #
 def ge(value: float | None, threshold: float) -> bool:

@@ -5,7 +5,7 @@ satu tabel berdampingan + baris pembanding PASAR (IHSG buy-and-hold) agar
 terlihat strategi mana yang benar-benar mengalahkan pasar.
 
 Pembanding IHSG dihitung dengan basis SAMA (kohort non-overlap H hari,
-anualisasi 252/H) namun TANPA biaya transaksi — karena buy-and-hold hanya
+anualisasi 252/H) namun TANPA biaya transaksi - karena buy-and-hold hanya
 sekali beli & sekali jual (cost amortisasi ~nol), berbeda dari strategi yang
 trading berulang. Ini membuat perbandingan adil: "apakah trading aktif (setelah
 biaya) mengalahkan memegang indeks secara pasif?".

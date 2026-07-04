@@ -4,7 +4,7 @@ Pengganti pgvector: karena knowledge base RAG sangat kecil (~puluhan dokumen
 konsep statis), tidak perlu extension DB/Docker. Vektor disimpan sebagai file
 numpy + metadata JSON di disk, pencarian via cosine similarity (numpy). Cukup,
 gratis, cepat, dan tidak menambah infrastruktur. (Bila kelak pindah ke container
-pgvector, hanya modul ini yang diganti — antarmuka search() tetap.)
+pgvector, hanya modul ini yang diganti - antarmuka search() tetap.)
 
 File persisten (di-gitignore, karena turunan dari knowledge_base.py):
   app/rag/data/knowledge_base.meta.json     -> daftar dokumen {id, source, title, content}

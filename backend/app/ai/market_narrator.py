@@ -27,7 +27,7 @@ def gather(db: Session) -> dict[str, Any]:
 
 
 def _extract(data: dict[str, Any]) -> dict[str, Any]:
-    """Ringkas field kunci dari data mentah (murni — untuk respons & uji)."""
+    """Ringkas field kunci dari data mentah (murni - untuk respons & uji)."""
     breadth = data.get("market_breadth") or {}
     sector = data.get("sector_rotation") or {}
     bench = data.get("benchmark") or {}

@@ -1,4 +1,4 @@
-"""Ranking API — Composite Score Engine (Day 7).
+"""Ranking API - Composite Score Engine (Day 7).
 
 GET /api/ranking
   Untuk tiap saham di universe: rakit indikator bar terakhir (dari market_data)
@@ -87,7 +87,7 @@ def _predict_up(bars: list[MarketData]) -> float | None:
         return None
     try:
         return inference.predict_from_features(feature_vector).probability_up
-    except Exception:  # noqa: BLE001 — ML opsional; ranking tetap jalan tanpa ML
+    except Exception:  # noqa: BLE001 - ML opsional; ranking tetap jalan tanpa ML
         return None
 
 

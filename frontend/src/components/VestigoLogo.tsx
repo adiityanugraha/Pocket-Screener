@@ -6,7 +6,7 @@ type VestigoLogoProps = {
 };
 
 /**
- * Vestigo brand mark — the owl logo, a nod to the name (Latin: "I track / trace").
+ * Vestigo brand mark - the owl logo, a nod to the name (Latin: "I track / trace").
  * Served from /public/vestigo-owl.png. Reused in the sidebar wordmark and the
  * Chat With Stock empty state.
  */

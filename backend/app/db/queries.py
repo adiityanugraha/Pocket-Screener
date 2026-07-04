@@ -2,7 +2,7 @@
 
 Banyak endpoint universe (ranking, screener, market breadth) dulu memuat SELURUH
 tabel market_data (≈188 ribu baris ORM) ke memori hanya untuk memakai indikator
-bar-bar terakhir tiap saham — ini penyebab utama OOM di container kecil.
+bar-bar terakhir tiap saham - ini penyebab utama OOM di container kecil.
 
 `load_recent_bars_by_ticker` membatasi muatan ke jendela tanggal terakhir saja,
 cukup untuk indikator/momentum yang sudah pre-computed, sehingga memori turun

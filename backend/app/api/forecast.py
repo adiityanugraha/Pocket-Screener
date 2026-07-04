@@ -4,7 +4,7 @@ GET /api/forecast/{ticker}
   P(return > 0) untuk horizon 1D / 5D / 20D dari 3 model ONNX terkalibrasi
   (app.ml.forecast_model) + confidence level. Disimpan ke tabel forecast &
   di-cache di Redis. SELALU menyertakan disclaimer (alat bantu analisis, bukan
-  rekomendasi jual/beli) — sesuai catatan risiko blueprint.
+  rekomendasi jual/beli) - sesuai catatan risiko blueprint.
 
 Query params:
   refresh : abaikan cache & hitung ulang (default false)
@@ -31,7 +31,7 @@ CACHE_KEY = "forecast:{ticker}"
 
 DISCLAIMER = (
     "Probability Forecast adalah alat bantu analisis berbasis model statistik, "
-    "BUKAN rekomendasi jual/beli. Akurasi terbatas — gunakan bersama "
+    "BUKAN rekomendasi jual/beli. Akurasi terbatas - gunakan bersama "
     "pertimbangan lain & kelola risiko."
 )
 

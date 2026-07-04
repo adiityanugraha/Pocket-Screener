@@ -1,4 +1,4 @@
-// Vestigo — shared status components for API-backed cards.
+// Vestigo - shared status components for API-backed cards.
 // Skeleton = subtle shimmer (not a spinner); error = clear, no apology.
 "use client";
 
@@ -39,7 +39,7 @@ export function CardError({
 }
 
 /**
- * "cached" indicator — a small dot in the card's top-right with a hover tooltip,
+ * "cached" indicator - a small dot in the card's top-right with a hover tooltip,
  * replacing the noisy pill (design.txt §4.3). Place inside a `.card`.
  */
 export function CachedDot({ cached }: { cached: boolean }) {

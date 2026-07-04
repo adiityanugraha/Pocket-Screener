@@ -64,7 +64,7 @@ function CandidateCard({ candidate }: { candidate: StrategyCandidate }) {
         </div>
         <div className="ta-r">
           <p className="mono" style={{ fontWeight: 500 }}>
-            {candidate.close != null ? fmtInt(candidate.close) : "—"}
+            {candidate.close != null ? fmtInt(candidate.close) : "-"}
           </p>
           <p className="card-sub mono">{fmtValue(candidate.value)}</p>
         </div>
@@ -126,7 +126,7 @@ export function MultiStrategyView() {
 
   return (
     <DashboardShell activeNav="Strategies" eyebrow="Multi-Strategy Engine" title="Strategies">
-      <VCard title="Pilih Strategi" sub="9 strategi screening — 5 teknikal & 4 fundamental" subMono={false}>
+      <VCard title="Pilih Strategi" sub="9 strategi screening - 5 teknikal & 4 fundamental" subMono={false}>
         {strategies.status === "loading" && <CardSkeleton lines={3} />}
         {strategies.status === "error" && (
           <CardError message={strategies.error} onRetry={strategies.reload} />

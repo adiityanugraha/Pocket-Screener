@@ -21,7 +21,7 @@ export function CorrelationHeatmap() {
   return (
     <VCard
       title="Correlation Matrix"
-      sub="Korelasi return harian LQ45 (90 hari) — bantu diversifikasi"
+      sub="Korelasi return harian LQ45 (90 hari) - bantu diversifikasi"
       subMono={false}
       cached={!!data?.cached}
     >
@@ -83,7 +83,7 @@ export function CorrelationHeatmap() {
             </div>
           </div>
           <p className="feature-note">
-            Seberapa seragam pergerakan saham LQ45 — bantu hindari konsentrasi risiko.
+            Seberapa seragam pergerakan saham LQ45 - bantu hindari konsentrasi risiko.
           </p>
           <p className="disclaimer">{data.disclaimer}</p>
         </>

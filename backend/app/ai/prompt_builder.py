@@ -3,9 +3,9 @@
 Merakit prompt LLM dari tiga lapis:
   - instruksi sistem  = persona + SYSTEM_RULES (guardrails: grounding, cakupan,
     anti-injeksi, disclaimer).
-  - konteks RAG       = definisi/konsep relevan (dari rag.retriever) — penjelasan,
+  - konteks RAG       = definisi/konsep relevan (dari rag.retriever) - penjelasan,
     BUKAN angka.
-  - hasil tool        = ANGKA LIVE dari endpoint Phase 1-4 (dari ai.tools) — sumber
+  - hasil tool        = ANGKA LIVE dari endpoint Phase 1-4 (dari ai.tools) - sumber
     kebenaran untuk semua angka.
 
 LLM merangkai ketiganya menjadi narasi. Pemisahan ini adalah inti anti-halusinasi:
@@ -36,7 +36,7 @@ def _format_tool_results(tool_results: dict[str, Any] | None) -> str:
         return ""
     pretty = json.dumps(tool_results, ensure_ascii=False, indent=2, default=str)
     return (
-        "DATA SISTEM (angka resmi — gunakan HANYA angka ini, jangan mengarang):\n"
+        "DATA SISTEM (angka resmi - gunakan HANYA angka ini, jangan mengarang):\n"
         f"{pretty}"
     )
 

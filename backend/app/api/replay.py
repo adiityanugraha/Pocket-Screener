@@ -31,7 +31,7 @@ CACHE_KEY = "replay:{date}:limit={limit}"
 
 DISCLAIMER = (
     "Replay menampilkan kinerja historis kandidat screening (return forward sudah "
-    "termasuk biaya 0,3% per trade) sebagai alat bantu analisis/edukasi — BUKAN "
+    "termasuk biaya 0,3% per trade) sebagai alat bantu analisis/edukasi - BUKAN "
     "rekomendasi maupun jaminan hasil serupa di masa depan."
 )
 

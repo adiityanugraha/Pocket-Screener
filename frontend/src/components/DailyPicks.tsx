@@ -1,7 +1,7 @@
 "use client";
 
 // Pick harian Top 5 BSJP / BPJS (Screener Lite). Tabel deterministik dari
-// GET /api/screener — tanpa ringkasan ML Screener (itu khusus Pro).
+// GET /api/screener - tanpa ringkasan ML Screener (itu khusus Pro).
 
 import { getScreener } from "@/lib/api";
 import { useApi } from "@/lib/useApi";

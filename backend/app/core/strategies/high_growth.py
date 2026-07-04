@@ -1,4 +1,4 @@
-"""Strategi HIGH GROWTH (Phase 3 Day 6) — perusahaan bertumbuh cepat.
+"""Strategi HIGH GROWTH (Phase 3 Day 6) - perusahaan bertumbuh cepat.
 
 Kriteria (blueprint):
   a. Revenue (Growth: 3 Year)   >= 10   (CAGR 3 tahun, persen)

@@ -3,7 +3,7 @@
 GET /api/why/{ticker}
   Untuk satu saham: strategi apa yang COCOK + alasan spesifiknya. Reasons diambil
   langsung dari matched_criteria tiap strategi (Strategy Registry) sehingga
-  OTOMATIS akurat sesuai kriteria yang benar-benar lolos — bukan teks template.
+  OTOMATIS akurat sesuai kriteria yang benar-benar lolos - bukan teks template.
   skipped_criteria juga ditampilkan agar keterbatasan data transparan.
 """
 

@@ -1,6 +1,6 @@
 "use client";
 
-// Risk Exposure per strategi (Phase 4) — profil risiko 5 strategi tervalidasi.
+// Risk Exposure per strategi (Phase 4) - profil risiko 5 strategi tervalidasi.
 // GET /api/risk-profile/{s} (vol, beta, max DD, losing streak, Low/Medium/High).
 
 import { getRiskProfile, type RiskProfileResponse } from "@/lib/api";
@@ -66,7 +66,7 @@ export function RiskExposure() {
             </table>
           </div>
           <p className="feature-note">
-            Profil risiko tiap strategi — volatilitas, beta, max drawdown, dan losing streak.
+            Profil risiko tiap strategi - volatilitas, beta, max drawdown, dan losing streak.
           </p>
           <p className="disclaimer">{data[0]?.disclaimer}</p>
         </>

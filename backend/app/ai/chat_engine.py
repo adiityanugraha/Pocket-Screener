@@ -1,4 +1,4 @@
-"""Chat With Stock — engine (Phase 5 Day 7).
+"""Chat With Stock - engine (Phase 5 Day 7).
 
 Pipeline: query pengguna -> deteksi ticker -> kumpulkan ANGKA LIVE via tool
 (grounding) + konteks konsep via RAG -> LLM merangkai jawaban + disclaimer.

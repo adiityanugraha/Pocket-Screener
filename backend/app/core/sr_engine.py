@@ -1,4 +1,4 @@
-"""Support & Resistance Engine — deteksi area support/resistance otomatis.
+"""Support & Resistance Engine - deteksi area support/resistance otomatis.
 
 Sesuai blueprint Phase 2 (Support & Resistance Engine), tiga metode digabung:
 
@@ -66,7 +66,7 @@ def find_swing_points(
 ) -> tuple[list[float], list[float]]:
     """Swing high/low fractal: titik yang menjadi ekstrem unik dalam jendela ±window.
 
-    `window` bar terakhir tak bisa dikonfirmasi (butuh bar di kanan) — sesuai
+    `window` bar terakhir tak bisa dikonfirmasi (butuh bar di kanan) - sesuai
     sifat fractal. Mengembalikan (swing_highs, swing_lows) urut kronologis.
     """
     swing_highs: list[float] = []

@@ -24,7 +24,7 @@ from app.db.models import CorrelationMatrix, MarketData, ReplayHistory, Stock
 
 DEFAULT_WINDOW = 90
 
-#: Subset LQ45 (large-cap likuid) yang ada di universe — pembatas O(n^2) baku.
+#: Subset LQ45 (large-cap likuid) yang ada di universe - pembatas O(n^2) baku.
 #: Di-intersect dengan ticker yang tersedia, jadi aman bila komposisi berubah.
 LQ45 = frozenset({
     "ACES", "ADRO", "AKRA", "AMRT", "ANTM", "ARTO", "ASII", "BBCA", "BBNI",

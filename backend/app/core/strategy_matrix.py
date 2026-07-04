@@ -4,7 +4,7 @@ Membangun matriks saham x strategi dari tabel strategy_results (diisi
 /api/screener/all, Day 7). Tiap sel punya TIGA keadaan, bukan dua:
   - True  : lolos strategi
   - False : dinilai tapi gagal
-  - None  : TIDAK dinilai (data kurang, mis. saham tanpa fundamental) — beda
+  - None  : TIDAK dinilai (data kurang, mis. saham tanpa fundamental) - beda
             makna dari "gagal", konsisten dgn flag `evaluated` di Strategy.
 
 Logika murni (assemble_matrix) dipisah dari I/O DB (build_strategy_matrix) agar

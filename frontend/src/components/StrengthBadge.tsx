@@ -1,6 +1,6 @@
 "use client";
 
-// Strength Score card (Phase 3) — skor kekuatan lintas-strategi 0-100 dari
+// Strength Score card (Phase 3) - skor kekuatan lintas-strategi 0-100 dari
 // GET /api/strength/{ticker} + daftar strategi yang lolos beserta bobotnya.
 
 import { getStrength } from "@/lib/api";

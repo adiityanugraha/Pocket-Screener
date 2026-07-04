@@ -1,4 +1,4 @@
-"""Performance tracking — evaluasi hasil screener setelah N hari + winrate.
+"""Performance tracking - evaluasi hasil screener setelah N hari + winrate.
 
 Sesuai blueprint Phase 2 (Screener History):
   - Tracking performa setelah screening (mis. "+4.2% setelah 7 hari")

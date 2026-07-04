@@ -25,7 +25,7 @@ export const STRATEGIES: StrategyInfo[] = [
   { key: "timeless", label: "Timeless", short: "TMLS", type: "fundamental" },
 ];
 
-/** 5 strategi teknikal — satu-satunya yang divalidasi historis (Phase 4). */
+/** 5 strategi teknikal - satu-satunya yang divalidasi historis (Phase 4). */
 export const TECHNICAL_STRATEGIES: StrategyInfo[] = STRATEGIES.filter(
   (s) => s.type === "technical",
 );

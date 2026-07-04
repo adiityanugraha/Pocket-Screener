@@ -1,4 +1,4 @@
-"""Meta API — info ringan untuk frontend (tanggal data terbaru, ukuran universe).
+"""Meta API - info ringan untuk frontend (tanggal data terbaru, ukuran universe).
 
 GET /api/meta
   Dipakai header/footer agar label "Data per ..." mencerminkan tanggal data

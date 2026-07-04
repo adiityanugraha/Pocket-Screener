@@ -68,7 +68,7 @@ def parse_query(query: str) -> dict[str, Any]:
         "Anda penerjemah query screener saham. Petakan permintaan pengguna ke SATU "
         "strategi paling cocok dari daftar (gunakan KEY-nya). Tetapkan max_risk bila "
         "pengguna menyebut preferensi risiko (rendah=LOW, sedang=MEDIUM, tinggi=HIGH), "
-        "jika tidak gunakan NONE. limit default 5. JANGAN memilih saham — hanya filter."
+        "jika tidak gunakan NONE. limit default 5. JANGAN memilih saham - hanya filter."
     )
     prompt = f"Strategi tersedia:\n{catalog_text}\n\nQuery pengguna: {query}"
     parsed = llm_client.generate_json(

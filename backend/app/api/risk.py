@@ -75,8 +75,8 @@ def _market_returns_by_date(db: Session) -> dict[date_cls, float]:
 
     Dipakai sebagai pembanding untuk menghitung Beta (IHSG tak tersimpan).
 
-    Memuat HANYA kolom (ticker, date, close) sebagai tuple ringan — bukan objek
-    ORM penuh — agar tidak meledakkan memori (proxy butuh seluruh histori untuk
+    Memuat HANYA kolom (ticker, date, close) sebagai tuple ringan - bukan objek
+    ORM penuh - agar tidak meledakkan memori (proxy butuh seluruh histori untuk
     menjaga nilai Beta tetap sama; jadi yang dihemat adalah berat per-baris).
     """
     rows = db.execute(

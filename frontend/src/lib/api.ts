@@ -1,6 +1,6 @@
 // REST client untuk backend Pocket Screener Phase 2 (FastAPI).
 //
-// Menggantikan komputasi berat client-side (fetch Yahoo + indikator + ONNX) —
+// Menggantikan komputasi berat client-side (fetch Yahoo + indikator + ONNX) -
 // semua kini dihitung server-side. Base URL dari NEXT_PUBLIC_API_BASE_URL
 // (default http://localhost:8000). Ticker dikirim TANPA sufiks .JK (backend
 // menyimpan ticker dasar IDX).
@@ -289,7 +289,7 @@ export type MarketDataResponse = {
 };
 
 // --------------------------------------------------------------------------- //
-// Tipe Phase 3 — Multi-Strategy Engine
+// Tipe Phase 3 - Multi-Strategy Engine
 // --------------------------------------------------------------------------- //
 export type StrategyMeta = {
   key: string;
@@ -360,7 +360,7 @@ export type StrategyMatrixResponse = {
 };
 
 // --------------------------------------------------------------------------- //
-// Tipe Phase 3 — Forecast, Strength, Explain, Why (Day 15)
+// Tipe Phase 3 - Forecast, Strength, Explain, Why (Day 15)
 // --------------------------------------------------------------------------- //
 export type ForecastResponse = {
   ticker: string;

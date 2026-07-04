@@ -9,7 +9,7 @@ Tiga fungsi:
      pengaman bila model lupa menambahkannya).
   3. Pesan baku penolakan untuk pertanyaan di luar cakupan.
 
-Disclaimer adalah titik paling sensitif dari seluruh project — JANGAN dilewatkan.
+Disclaimer adalah titik paling sensitif dari seluruh project - JANGAN dilewatkan.
 """
 
 from __future__ import annotations

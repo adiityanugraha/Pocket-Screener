@@ -3,15 +3,15 @@
 Mengubah angka mentah menjadi penjelasan manusiawi (bullish factors + risk
 factors + confidence). Dua lapis, sesuai blueprint:
 
-  1. RULE-BASED  : matched_criteria dari strategi yang LOLOS — sudah per-saham &
+  1. RULE-BASED  : matched_criteria dari strategi yang LOLOS - sudah per-saham &
                    akurat (mis. "MA20 > MA50 > MA100 > MA200", "Revenue +18% YoY").
                    Disuplai pemanggil dari hasil Strategy Registry.
   2. ML-LAYER    : interpretasi per-saham atas 13 fitur yang DILIHAT model
                    (RSI, MACD, Bollinger, ATR, volume, VWAP) menjadi kalimat.
-                   Confidence = probabilitas model ONNX (P(up)) — bukan SHAP
+                   Confidence = probabilitas model ONNX (P(up)) - bukan SHAP
                    (keputusan: lapisan ringan, model lemah 0.54 acc).
 
-Modul MURNI (tanpa DB/ONNX) — pemanggil menyuplai snapshot indikator +
+Modul MURNI (tanpa DB/ONNX) - pemanggil menyuplai snapshot indikator +
 probabilitas + matched_criteria. Ambang interpretasi dikumpulkan sebagai
 konstanta agar mudah disetel.
 """
@@ -70,7 +70,7 @@ def technical_bullish(s: ExplainSnapshot) -> list[str]:
         factors.append(f"Volume {pct:.0f}% di atas rata-rata 20 hari")
 
     if s.rsi is not None and RSI_HEALTHY_LOW <= s.rsi <= RSI_HEALTHY_HIGH:
-        factors.append(f"RSI sehat ({s.rsi:.0f}) — momentum kuat tanpa overbought")
+        factors.append(f"RSI sehat ({s.rsi:.0f}) - momentum kuat tanpa overbought")
 
     if s.vwap_ratio is not None and s.vwap_ratio > 0:
         factors.append(f"Harga {s.vwap_ratio * 100:.1f}% di atas VWAP (akumulasi)")
@@ -91,7 +91,7 @@ def technical_risk(s: ExplainSnapshot) -> list[str]:
     if s.rsi is not None and s.rsi >= RSI_OVERBOUGHT:
         factors.append(f"Overbought (RSI {s.rsi:.0f})")
     elif s.rsi is not None and s.rsi <= RSI_OVERSOLD:
-        factors.append(f"Oversold (RSI {s.rsi:.0f}) — tekanan jual masih ada")
+        factors.append(f"Oversold (RSI {s.rsi:.0f}) - tekanan jual masih ada")
 
     if s.atr_pct is not None and s.atr_pct >= ATR_HIGH_PCT:
         factors.append(f"Volatilitas tinggi (ATR {s.atr_pct * 100:.1f}% dari harga)")
@@ -107,7 +107,7 @@ def technical_risk(s: ExplainSnapshot) -> list[str]:
         factors.append(f"Harga {abs(s.vwap_ratio) * 100:.1f}% di bawah VWAP (distribusi)")
 
     if s.bb_position is not None and s.bb_position <= BB_NEAR_LOWER:
-        factors.append("Dekat support (lower Bollinger Band) — risiko breakdown")
+        factors.append("Dekat support (lower Bollinger Band) - risiko breakdown")
 
     return factors
 

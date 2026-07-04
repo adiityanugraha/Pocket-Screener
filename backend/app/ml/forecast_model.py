@@ -9,7 +9,7 @@ Confidence level (LOW/MEDIUM/HIGH) diturunkan dari KALIBRASI: rata-rata jarak
 probabilitas dari 50% (makin jauh dari acak -> makin yakin). Ambang dibaca dari
 forecast_metrics.json (confidence_thresholds), dengan fallback default.
 
-Sesi ONNX di-load lazy & dicache (thread-safe) — tiap file ~2.5 MB.
+Sesi ONNX di-load lazy & dicache (thread-safe) - tiap file ~2.5 MB.
 """
 
 from __future__ import annotations

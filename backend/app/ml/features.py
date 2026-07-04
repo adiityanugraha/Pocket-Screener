@@ -1,10 +1,10 @@
-"""Feature engineering ML — port PERSIS dari frontend/src/lib/mlInference.ts
+"""Feature engineering ML - port PERSIS dari frontend/src/lib/mlInference.ts
 (`buildModelFeatureVector`).
 
 Menghasilkan 13 fitur dalam URUTAN TEPAT yang diharapkan model RandomForest
 (lihat model_metrics.json). Karena indikator dasar (RSI/MACD/BB/ATR/VWAP) sudah
 merupakan port baris-per-baris dari frontend (app.core.indicators), feature
-vector di sini akan identik dengan yang dihitung browser Phase 1 — sehingga
+vector di sini akan identik dengan yang dihitung browser Phase 1 - sehingga
 prediksi server-side konsisten dengan client-side.
 
 Aturan penting yang ditiru dari TS:

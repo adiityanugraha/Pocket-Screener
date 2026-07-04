@@ -30,7 +30,7 @@ def _check_database() -> str:
         finally:
             db.close()
         return "ok"
-    except Exception:  # noqa: BLE001 — health check tidak boleh melempar
+    except Exception:  # noqa: BLE001 - health check tidak boleh melempar
         return "error"
 
 

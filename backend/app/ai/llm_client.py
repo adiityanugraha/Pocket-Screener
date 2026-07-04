@@ -1,7 +1,7 @@
-"""Wrapper pemanggilan LLM — provider-agnostic (Phase 5 Day 1).
+"""Wrapper pemanggilan LLM - provider-agnostic (Phase 5 Day 1).
 
 Membungkus provider LLM (saat ini Google Gemini, free tier) di balik antarmuka
-NETRAL: caller hanya bekerja dengan `str`, `dict`, dan iterator teks biasa —
+NETRAL: caller hanya bekerja dengan `str`, `dict`, dan iterator teks biasa -
 tidak ada tipe khusus Gemini yang bocor keluar. Mengganti provider nanti cukup
 mengubah file INI saja.
 
@@ -14,8 +14,8 @@ Prinsip desain (selaras cache/redis_client Phase 2):
 
 Tiga mode yang didukung (sesuai Step_by_Step_Phase5 Day 1):
   - generate()      : prompt -> teks (chat biasa)
-  - generate_json() : structured output (JSON) — fondasi NL Screener Day 9
-  - stream()        : streaming teks token-demi-token — untuk Chat Day 7-8
+  - generate_json() : structured output (JSON) - fondasi NL Screener Day 9
+  - stream()        : streaming teks token-demi-token - untuk Chat Day 7-8
 
 Catatan biaya/kuota: free tier punya batas RPM/RPD. Generasi batch (job malam)
 WAJIB di-cache; throttle antar-pemanggilan dilakukan di pemanggil, bukan di sini.
@@ -33,7 +33,7 @@ from app.core.config import get_settings
 
 log = logging.getLogger("app.ai")
 
-# Retry untuk error TRANSIEN (rate limit / overload) — krusial di free tier saat
+# Retry untuk error TRANSIEN (rate limit / overload) - krusial di free tier saat
 # generasi batch (mis. 81 saham di job malam). Backoff: 2s, 4s.
 _MAX_RETRIES = 3
 _BACKOFF_BASE = 2.0
@@ -79,7 +79,7 @@ def _build_client() -> Any | None:
         from google import genai
 
         return genai.Client(api_key=api_key)
-    except Exception as exc:  # noqa: BLE001 — jangan jatuhkan app karena AI mati
+    except Exception as exc:  # noqa: BLE001 - jangan jatuhkan app karena AI mati
         log.warning("Gagal inisialisasi client LLM: %s", exc)
         return None
 
@@ -115,7 +115,7 @@ def _config(system: str | None, temperature: float | None, max_output_tokens: in
 
     Thinking DINONAKTIFKAN (thinking_budget=0) secara default: tugas Phase 5
     sekadar menarasikan angka dari sistem (bukan reasoning kompleks), sehingga
-    thinking hanya menambah latensi & boros kuota free tier — dan dengan
+    thinking hanya menambah latensi & boros kuota free tier - dan dengan
     max_output_tokens kecil, anggaran bisa habis untuk thinking sampai teks
     jawaban kosong. Caller bisa override via extra["thinking_config"].
     """

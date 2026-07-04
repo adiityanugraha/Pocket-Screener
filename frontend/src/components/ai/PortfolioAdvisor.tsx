@@ -1,6 +1,6 @@
 "use client";
 
-// Portfolio AI Advisor (Phase 5) — alokasi (Phase 4) + penjelasan AI.
+// Portfolio AI Advisor (Phase 5) - alokasi (Phase 4) + penjelasan AI.
 // POST /api/portfolio-advisor.
 
 import { useState } from "react";
@@ -60,9 +60,9 @@ export function PortfolioAdvisor() {
                       <span className="tk-pill">{a.ticker}</span>
                     </td>
                     <td className="ta-r mono chip-info">{fmtScore(a.weight * 100, 1)}%</td>
-                    <td className="ta-r mono">{a.amount != null ? fmtValue(a.amount) : "—"}</td>
+                    <td className="ta-r mono">{a.amount != null ? fmtValue(a.amount) : "-"}</td>
                     <td className={`ta-r mono ${levelClass(a.risk_level)}`}>
-                      {a.risk_level ?? "—"}
+                      {a.risk_level ?? "-"}
                     </td>
                   </tr>
                 ))}

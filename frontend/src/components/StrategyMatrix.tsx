@@ -1,7 +1,7 @@
 "use client";
 
 // Strategy Comparison Matrix (Phase 3). Saham x 9 strategi, sel tiga-keadaan:
-//   ✓ lolos / × dinilai-gagal / – tak dinilai. GET /api/strategy-matrix.
+//   ✓ lolos / × dinilai-gagal / - tak dinilai. GET /api/strategy-matrix.
 
 import { useState } from "react";
 import { getStrategyMatrix, type StrategyMeta } from "@/lib/api";
@@ -19,7 +19,7 @@ function Cell({ value }: { value: boolean | null }) {
   if (value === false) return <span className="mx-cell mx-fail">×</span>;
   return (
     <span className="mx-cell mx-na" title="Tidak dinilai (data tidak cukup)">
-      –
+      -
     </span>
   );
 }
@@ -34,7 +34,7 @@ export function StrategyMatrix() {
   return (
     <VCard
       title="Strategy Matrix"
-      sub="Pass / fail per ticker · 9 strategi (✓ lolos · × gagal · – tak dinilai)"
+      sub="Pass / fail per ticker · 9 strategi (✓ lolos · × gagal · - tak dinilai)"
       subMono={false}
       cached={!!data?.cached}
       right={

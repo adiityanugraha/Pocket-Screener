@@ -52,7 +52,7 @@ SCREENER_LIMIT = 10
 RANKING_LIMIT = 80
 REPORT_USE_ML = True
 
-# Phase 5 — batas & throttle generasi AI (hormati kuota harian Gemini free tier).
+# Phase 5 - batas & throttle generasi AI (hormati kuota harian Gemini free tier).
 AI_ANALYSIS_LIMIT = 15      # AI Analysis hanya untuk top-N saham per malam
 AI_THROTTLE_SECONDS = 4.0   # jeda antar pemanggilan LLM (hindari rate limit RPM)
 
@@ -64,7 +64,7 @@ def _tradable_tickers(db) -> list[str]:
 
 
 def job_update_market_data(tickers: list[str] | None = None) -> int:
-    """07:00 — Tarik OHLCV terbaru + hitung indikator -> upsert market_data.
+    """07:00 - Tarik OHLCV terbaru + hitung indikator -> upsert market_data.
 
     Mengembalikan total bar tersimpan. Cache lama dibiarkan kedaluwarsa via TTL
     (wrapper Redis no-op tidak mendukung wildcard delete).
@@ -78,7 +78,7 @@ def job_update_market_data(tickers: list[str] | None = None) -> int:
 
 
 def job_refresh_fundamental_derived() -> int:
-    """07:15 (Phase 3) — Refresh metrik fundamental harga-sensitif harian
+    """07:15 (Phase 3) - Refresh metrik fundamental harga-sensitif harian
     (PE/PBV/MarketCap/DividendYield) -> fundamental_derived."""
     with SessionLocal() as db:
         results = fundamentals_derived.refresh_derived(db)
@@ -88,7 +88,7 @@ def job_refresh_fundamental_derived() -> int:
 
 
 def job_run_all_strategies(limit: int = SCREENER_LIMIT) -> int:
-    """07:30 (Phase 3) — Jalankan SEMUA 9 strategi -> strategy_results.
+    """07:30 (Phase 3) - Jalankan SEMUA 9 strategi -> strategy_results.
 
     Sumber untuk Strategy Matrix (Day 8), Strength Score (Day 9), Explain/Why
     (Day 10). Mengembalikan jumlah baris hasil yang dipersist.
@@ -104,7 +104,7 @@ def job_run_all_strategies(limit: int = SCREENER_LIMIT) -> int:
 
 
 def job_generate_forecasts(tickers: list[str] | None = None) -> int:
-    """16:15 (Phase 3) — Probability Forecast 1D/5D/20D tiap saham -> tabel forecast."""
+    """16:15 (Phase 3) - Probability Forecast 1D/5D/20D tiap saham -> tabel forecast."""
     generated = 0
     with SessionLocal() as db:
         if tickers is None:
@@ -124,7 +124,7 @@ def job_generate_forecasts(tickers: list[str] | None = None) -> int:
 
 
 def job_generate_strength(tickers: list[str] | None = None) -> int:
-    """16:30 (Phase 3) — Strength Score lintas-strategi tiap saham -> strength_score.
+    """16:30 (Phase 3) - Strength Score lintas-strategi tiap saham -> strength_score.
 
     Membaca strategy_results (harus jalan SETELAH job_run_all_strategies 07:30).
     """
@@ -145,7 +145,7 @@ def job_generate_strength(tickers: list[str] | None = None) -> int:
 
 
 def job_update_fundamentals(tickers: list[str] | None = None) -> int:
-    """Mingguan (Phase 3) — Tarik ulang data fundamental dari Yahoo -> fundamentals.
+    """Mingguan (Phase 3) - Tarik ulang data fundamental dari Yahoo -> fundamentals.
 
     Fundamental berubah per kuartal; cukup di-refresh mingguan / saat rilis laporan.
     """
@@ -157,7 +157,7 @@ def job_update_fundamentals(tickers: list[str] | None = None) -> int:
 
 
 def job_run_screener(limit: int = SCREENER_LIMIT) -> int:
-    """09:30 / 10:00 / 15:30 — Jalankan screener (BSJP+BPJS) -> screening_history.
+    """09:30 / 10:00 / 15:30 - Jalankan screener (BSJP+BPJS) -> screening_history.
 
     run_screener menghitung kedua strategi dan mem-persist semua kandidat yang
     lolos pada bar terbaru (upsert idempoten). Mengembalikan jumlah yang disimpan.
@@ -169,7 +169,7 @@ def job_run_screener(limit: int = SCREENER_LIMIT) -> int:
 
 
 def job_generate_ranking(limit: int = RANKING_LIMIT, use_ml: bool = True) -> int:
-    """16:00 — Hitung Composite Score ranking lalu hangatkan cache Redis."""
+    """16:00 - Hitung Composite Score ranking lalu hangatkan cache Redis."""
     with SessionLocal() as db:
         result = run_ranking(db, limit=limit, use_ml=use_ml)
     cache_key = RANKING_CACHE_KEY.format(limit=limit, ml=use_ml)
@@ -179,7 +179,7 @@ def job_generate_ranking(limit: int = RANKING_LIMIT, use_ml: bool = True) -> int
 
 
 def job_generate_reports(use_ml: bool = REPORT_USE_ML) -> int:
-    """17:00 — Generate AI Stock Report tiap saham lalu hangatkan cache Redis."""
+    """17:00 - Generate AI Stock Report tiap saham lalu hangatkan cache Redis."""
     generated = 0
     with SessionLocal() as db:
         tickers = list(db.scalars(select(Stock.ticker).order_by(Stock.ticker)))
@@ -196,10 +196,10 @@ def job_generate_reports(use_ml: bool = REPORT_USE_ML) -> int:
 
 
 # --------------------------------------------------------------------------- #
-# Phase 4 — job malam quant (berat → setelah pasar tutup) + berkala
+# Phase 4 - job malam quant (berat → setelah pasar tutup) + berkala
 # --------------------------------------------------------------------------- #
 def job_generate_quant_metrics() -> int:
-    """18:00 (Phase 4) — Performance Metrics + Benchmark (+IHSG) + Equity Curve.
+    """18:00 (Phase 4) - Performance Metrics + Benchmark (+IHSG) + Equity Curve.
 
     get_benchmark me-recompute & mem-persist strategy_performance (5 strategi +
     baris ihsg) lalu menghangatkan cache benchmark; equity_curve.compute_all
@@ -213,7 +213,7 @@ def job_generate_quant_metrics() -> int:
 
 
 def job_update_correlation(universe: str = "lq45") -> int:
-    """19:00 (Phase 4) — Correlation Matrix universe terbatas -> correlation_matrix + cache."""
+    """19:00 (Phase 4) - Correlation Matrix universe terbatas -> correlation_matrix + cache."""
     with SessionLocal() as db:
         result = correlation_api.get_correlation(
             universe=universe, window=cm.DEFAULT_WINDOW, refresh=True, db=db
@@ -224,7 +224,7 @@ def job_update_correlation(universe: str = "lq45") -> int:
 
 
 def job_run_monte_carlo() -> int:
-    """20:00 (Phase 4) — Monte Carlo tiap strategi tervalidasi -> hangatkan cache.
+    """20:00 (Phase 4) - Monte Carlo tiap strategi tervalidasi -> hangatkan cache.
 
     Tak ada tabel MC; menghangatkan cache Redis = bentuk persistensinya.
     """
@@ -245,7 +245,7 @@ def job_run_monte_carlo() -> int:
 
 
 def job_refresh_replay_returns(tickers: list[str] | None = None) -> int:
-    """Berkala (Phase 4) — Isi/segarkan return forward replay_history.
+    """Berkala (Phase 4) - Isi/segarkan return forward replay_history.
 
     Memasukkan kandidat baru (return masih NULL) & mengisi horizon yang sudah
     jatuh tempo (mis. ret_30d setelah 30 hari). Idempoten via upsert.
@@ -259,7 +259,7 @@ def job_refresh_replay_returns(tickers: list[str] | None = None) -> int:
 
 
 def job_refresh_walk_forward() -> int:
-    """Berkala (Phase 4) — Refresh walk-forward (paling berat) -> hangatkan cache."""
+    """Berkala (Phase 4) - Refresh walk-forward (paling berat) -> hangatkan cache."""
     warmed = 0
     with SessionLocal() as db:
         for strategy in pm.VALIDATED_STRATEGIES:
@@ -276,12 +276,12 @@ def job_refresh_walk_forward() -> int:
 
 
 # --------------------------------------------------------------------------- #
-# Phase 5 — job malam lapisan AI (SETELAH job quant Phase 4; bergantung outputnya)
+# Phase 5 - job malam lapisan AI (SETELAH job quant Phase 4; bergantung outputnya)
 # Urutan: KB embeddings -> AI Analysis -> Market Narrator -> Daily Report.
 # Semua aman-gagal bila AI nonaktif (di-skip) agar pipeline non-AI tak terganggu.
 # --------------------------------------------------------------------------- #
 def job_refresh_knowledge_base() -> int:
-    """20:30 (Phase 5) — re-embed & index knowledge base ke vector store lokal."""
+    """20:30 (Phase 5) - re-embed & index knowledge base ke vector store lokal."""
     if not llm_client.is_available():
         log.info("refresh_knowledge_base: AI nonaktif, dilewati.")
         return 0
@@ -291,7 +291,7 @@ def job_refresh_knowledge_base() -> int:
 
 
 def job_generate_ai_analysis(limit: int = AI_ANALYSIS_LIMIT) -> int:
-    """21:00 (Phase 5) — AI Analysis untuk top-N saham -> ai_reports + cache.
+    """21:00 (Phase 5) - AI Analysis untuk top-N saham -> ai_reports + cache.
 
     Dibatasi top-N (peringkat Composite Score) demi kuota free tier, dan
     di-throttle antar pemanggilan LLM. Mengembalikan jumlah analisis berhasil.
@@ -308,7 +308,7 @@ def job_generate_ai_analysis(limit: int = AI_ANALYSIS_LIMIT) -> int:
                 result = ai_analysis_api.get_ai_analysis(ticker=ticker, refresh=True, db=db)
                 if result.get("ai_generated"):
                     generated += 1
-            except Exception as exc:  # noqa: BLE001 — satu saham gagal tak boleh hentikan batch
+            except Exception as exc:  # noqa: BLE001 - satu saham gagal tak boleh hentikan batch
                 log.warning("generate_ai_analysis %s gagal: %s", ticker, exc)
             if index < len(tickers) - 1:
                 time.sleep(AI_THROTTLE_SECONDS)
@@ -317,7 +317,7 @@ def job_generate_ai_analysis(limit: int = AI_ANALYSIS_LIMIT) -> int:
 
 
 def job_generate_market_narrative() -> int:
-    """21:30 (Phase 5) — Market Narrator -> market_narratives + cache."""
+    """21:30 (Phase 5) - Market Narrator -> market_narratives + cache."""
     if not llm_client.is_available():
         log.info("generate_market_narrative: AI nonaktif, dilewati.")
         return 0
@@ -328,7 +328,7 @@ def job_generate_market_narrative() -> int:
 
 
 def job_generate_daily_report() -> int:
-    """22:00 (Phase 5) — AI Daily Report -> cache."""
+    """22:00 (Phase 5) - AI Daily Report -> cache."""
     if not llm_client.is_available():
         log.info("generate_daily_report: AI nonaktif, dilewati.")
         return 0
