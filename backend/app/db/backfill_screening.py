@@ -35,12 +35,19 @@ def backfill() -> int:
         grouped = _bars_by_ticker(db)
         rows: list[dict] = []
 
-        for ticker, bars in grouped.items():
+        # Jendela dibatasi ~83 bar bursa, menyamai screener live
+        # (app/api/screener.py SCREENER_LOOKBACK_DAYS=120 hari kalender).
+        # Indikator terpanjang = MACD 26+9; 83 bar cukup untuk warmup.
+        # ponytail: O(n*83) bukan O(n^2); vectorize indicators.py kalau masih lambat.
+        window_bars = 83
+
+        for n, (ticker, bars) in enumerate(grouped.items(), start=1):
             if is_index(ticker):  # indeks tidak di-screen
                 continue
-            # Slice 0..i; screen_bars menilai bar terakhir (= bar ke-i).
+            print(f"  [{n}/{len(grouped)}] {ticker} ({len(bars)} bar)...")
+            # Window berakhir di bar-i; screen_bars menilai bar terakhir.
             for i in range(screener_core.MIN_BARS - 1, len(bars)):
-                window = bars[: i + 1]
+                window = bars[max(0, i + 1 - window_bars) : i + 1]
                 candidates = screener_core.screen_bars(ticker, window)
                 if not candidates:
                     continue
