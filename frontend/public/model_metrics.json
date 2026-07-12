@@ -1,4 +1,5 @@
 {
+  "generatedAt": "2026-07-12T04:05:53.338618+00:00",
   "model": "RandomForestClassifier",
   "target": "next_day_close_return_positive",
   "features": [
@@ -16,10 +17,12 @@
     "atr_pct",
     "vwap_ratio"
   ],
-  "trainRows": 14190,
-  "testRows": 3540,
-  "splitDate": "2025-05-20",
-  "accuracy": 0.5387005649717514,
-  "precision": 0.4573584905660377,
-  "recall": 0.3986842105263158
+  "trainRows": 29107,
+  "testRows": 7260,
+  "periodStart": "2016-07-20",
+  "periodEnd": "2026-07-09",
+  "splitDate": "2024-07-02",
+  "accuracy": 0.5261707988980716,
+  "precision": 0.45058037284558566,
+  "recall": 0.40550807217473883
 }
