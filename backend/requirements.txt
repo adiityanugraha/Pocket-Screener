@@ -21,7 +21,9 @@ redis==8.0.0
 apscheduler==3.11.2
 
 # --- ML inference ---
-onnxruntime==1.26.0
+# JANGAN naikkan ke 1.26/1.27: regresi TreeEnsembleClassifier biner -
+# probabilities jadi [-p, p] dan label selalu 1. Terverifikasi benar di 1.25.1.
+onnxruntime==1.25.1
 
 # --- Data / numerik ---
 pandas==3.0.3

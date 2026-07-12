@@ -41,7 +41,8 @@ def main():
 
     split_date = features["date"].quantile(0.8)
     train = features[features["date"] <= split_date]
-    test = features[features["date"] > split_date]
+    # Purge gap: target baris train terakhir tidak bocor ke periode test.
+    test = features[features["date"] > split_date + pd.Timedelta(days=7)]
 
     x_train = train[FEATURE_COLUMNS].astype(np.float32)
     y_train = train["target"].astype(int)
@@ -66,8 +67,9 @@ def main():
     model.fit(x_train, y_train)
 
     predictions = model.predict(x_test)
+    baseline_accuracy = float(max(y_test.mean(), 1 - y_test.mean()))
     metrics = {
-        "generatedAt": pd.Timestamp.utcnow().isoformat(),
+        "generatedAt": pd.Timestamp.now("UTC").isoformat(),
         "model": "RandomForestClassifier",
         "target": "next_day_close_return_positive",
         "features": FEATURE_COLUMNS,
@@ -76,6 +78,7 @@ def main():
         "periodStart": features["date"].min().date().isoformat(),
         "periodEnd": features["date"].max().date().isoformat(),
         "splitDate": pd.Timestamp(split_date).date().isoformat(),
+        "baselineAccuracy": baseline_accuracy,
         "accuracy": float(accuracy_score(y_test, predictions)),
         "precision": float(precision_score(y_test, predictions, zero_division=0)),
         "recall": float(recall_score(y_test, predictions, zero_division=0)),
@@ -92,7 +95,7 @@ def main():
     onnx.checker.check_model(onnx_model)
     MODEL_PATH.write_bytes(onnx_model.SerializeToString())
 
-    verify_onnx_model(MODEL_PATH, x_test.head(5).to_numpy(dtype=np.float32))
+    verify_onnx_model(model, MODEL_PATH, x_test.head(5).to_numpy(dtype=np.float32))
     METRICS_PATH.write_text(json.dumps(metrics, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps(metrics, indent=2))
@@ -106,6 +109,8 @@ def build_dataset(df: pd.DataFrame) -> pd.DataFrame:
         [add_features(group) for _, group in df.groupby("symbol", sort=False)],
         ignore_index=True,
     )
+    # Target 1-hari dipertahankan: diuji vs horizon 5-hari (Jul 2026), lift
+    # precision top-decile 1d (+5.0pp) > 5d (+1.5pp) di test set yang sama.
     engineered["next_close"] = engineered.groupby("symbol")["close"].shift(-1)
     engineered["target"] = (engineered["next_close"] > engineered["close"]).astype(int)
     engineered = engineered.dropna(subset=FEATURE_COLUMNS + ["target", "next_close"])
@@ -151,10 +156,13 @@ def add_features(group: pd.DataFrame) -> pd.DataFrame:
     ).max(axis=1)
     group["atr_pct"] = true_range.ewm(alpha=1 / 14, adjust=False).mean() / close
 
+    # VWAP window 60 bar - match serving: backend inference memuat LOOKBACK_BARS=60
+    # bar lalu menghitung VWAP kumulatif atas 60 bar itu. VWAP kumulatif dari awal
+    # dataset akan non-stasioner dan tidak konsisten dengan serving.
     typical_price = (high + low + close) / 3
-    cumulative_tpv = (typical_price * volume).cumsum()
-    cumulative_volume = volume.cumsum()
-    group["vwap_ratio"] = close / (cumulative_tpv / cumulative_volume) - 1
+    rolling_tpv = (typical_price * volume).rolling(60).sum()
+    rolling_volume = volume.rolling(60).sum()
+    group["vwap_ratio"] = close / (rolling_tpv / rolling_volume) - 1
 
     return group
 
@@ -181,13 +189,27 @@ def macd(close: pd.Series):
     return macd_line, signal_line, histogram
 
 
-def verify_onnx_model(model_path: Path, sample: np.ndarray):
+def verify_onnx_model(sk_model: Pipeline, model_path: Path, sample: np.ndarray):
+    """Pastikan output ONNX == sklearn. skl2onnx 1.20 + sklearn 1.9 pernah
+    menghasilkan probabilitas [-p, p] dan label salah tanpa error apa pun -
+    pakai stack pinned di requirements-train.txt."""
     session = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
     input_name = session.get_inputs()[0].name
     outputs = session.run(None, {input_name: sample})
 
     if len(outputs) < 2:
         raise RuntimeError("Expected ONNX classifier to return label and probability outputs")
+
+    expected_proba = sk_model.predict_proba(sample)
+    onnx_proba = np.asarray(outputs[1])
+    if not np.allclose(onnx_proba, expected_proba, atol=1e-4):
+        raise RuntimeError(
+            f"ONNX probabilities menyimpang dari sklearn:\n"
+            f"onnx    = {onnx_proba.tolist()}\n"
+            f"sklearn = {expected_proba.tolist()}"
+        )
+    if not np.array_equal(np.asarray(outputs[0]).reshape(-1), sk_model.predict(sample)):
+        raise RuntimeError("ONNX labels menyimpang dari sklearn")
 
 
 if __name__ == "__main__":

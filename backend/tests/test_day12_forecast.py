@@ -113,7 +113,10 @@ def test_api_forecast_persisted_and_cached() -> None:
     from app.db.session import SessionLocal
 
     db = SessionLocal()
-    row = db.scalars(select(Forecast).where(Forecast.ticker == "ASII")).first()
+    # Ambil baris terbaru: tabel bisa berisi forecast tanggal-tanggal lama.
+    row = db.scalars(
+        select(Forecast).where(Forecast.ticker == "ASII").order_by(Forecast.date.desc())
+    ).first()
     db.close()
     assert row is not None
     assert row.confidence == first["confidence"]
